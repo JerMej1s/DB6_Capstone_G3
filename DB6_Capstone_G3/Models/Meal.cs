@@ -8,7 +8,7 @@ using MySql.Data;
 namespace DB6_Capstone_G3.Models
 {
     [Table("meal")]
-    public class MealClass
+    public class Meal
     {
         [Key]
         public int idMeal { get; set; }
