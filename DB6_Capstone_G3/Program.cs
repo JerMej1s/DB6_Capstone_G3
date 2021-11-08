@@ -14,6 +14,7 @@ namespace DB6_Capstone_G3
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+            // Jeremy's test comment
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

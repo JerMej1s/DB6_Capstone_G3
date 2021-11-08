@@ -3,7 +3,7 @@ create database partyplanner;
 use partyplanner;
 
 create table cocktail (
-	idDrink int not null,
+    idDrink int not null,
     strDrink varchar(30),
     strInstructions varchar(1000),
     strIngredient1 varchar(30),
@@ -41,7 +41,7 @@ create table cocktail (
 );
 
 create table meal (
-	idMeal int not null,
+    idMeal int not null,
     strMeal varchar(50),
     strArea varchar(30),
     strInstructions varchar(1000),
@@ -98,7 +98,7 @@ create table user (
 );
 
 create table event (
-	idEvent int not null auto_increment,
+    idEvent int not null auto_increment,
     idUser int,
     date DateTime,
     city varchar(85),
