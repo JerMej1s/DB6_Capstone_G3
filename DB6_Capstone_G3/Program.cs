@@ -15,6 +15,7 @@ namespace DB6_Capstone_G3
         {
             CreateHostBuilder(args).Build().Run();
             //TEST BRANCHING WOOHOO
+            //Testing main branch
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
