@@ -8,7 +8,7 @@ using Dapper.Contrib.Extensions;
 namespace DB6_Capstone_G3.Models
 {
     [Table("cocktail")]
-    public class CocktailClass
+    public class Cocktail
     {
         [Key]
         int idDrink { get; set; }
