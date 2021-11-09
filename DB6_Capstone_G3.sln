@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DB6_Capstone_G3", "DB6_Capstone_G3\DB6_Capstone_G3.csproj", "{43711354-E423-493A-9360-33D1C10D00D9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B2ED1D22-0871-4BC8-B558-3BCA52CD0A54}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DDB56A36-3FD2-4F06-9E2D-8E0BA630E4E4}"
 EndProject
 Global
