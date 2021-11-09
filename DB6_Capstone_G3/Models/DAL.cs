@@ -45,7 +45,7 @@ namespace DB6_Capstone_G3.Models
             return response;
         }
 
-        public static MySqlConnection Database;
+        public static MySqlConnection db;
         public static User saveUser(string firstName, string lastName, string phoneNumber)
         {
             User user = new User()
@@ -55,7 +55,7 @@ namespace DB6_Capstone_G3.Models
                 phoneNumber = phoneNumber
             };
 
-            Database.Insert(user);
+            db.Insert(user);
             return user;
         }
 
@@ -69,7 +69,7 @@ namespace DB6_Capstone_G3.Models
                 state = state
             };
 
-            Database.Insert(newEvent);
+            db.Insert(newEvent);
             return newEvent;
         }
         
@@ -80,7 +80,7 @@ namespace DB6_Capstone_G3.Models
                 idDrink = idDrink
             };
 
-            Database.Insert(cocktail);
+            db.Insert(cocktail);
             return cocktail;
         }
     }
