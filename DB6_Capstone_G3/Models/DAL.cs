@@ -27,7 +27,6 @@ namespace DB6_Capstone_G3.Models
         public async static Task<CocktailResponse> GetCocktailsByName(string userSearch)
         {
             var connection = await GetHttpClient().GetAsync($"api/json/v1/1/search.php?s={userSearch}");
-            //IEnumerable<Cocktail> response = await connection.Content.ReadAsAsync<IEnumerable<Cocktail>>();
             CocktailResponse response = await connection.Content.ReadAsAsync<CocktailResponse>();
             return response;
         }
