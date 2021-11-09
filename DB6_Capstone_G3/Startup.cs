@@ -67,7 +67,8 @@ namespace DB6_Capstone_G3
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    //spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://127.0.0.1:4200");
                 }
             });
         }
