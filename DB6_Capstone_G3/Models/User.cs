@@ -11,7 +11,7 @@ namespace DB6_Capstone_G3.Models
     public class User
     {
         [ExplicitKey]
-        public int isUser { get; set; }
+        public int idUser { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string phoneNumber { get; set; }

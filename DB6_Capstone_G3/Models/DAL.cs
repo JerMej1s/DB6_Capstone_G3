@@ -12,7 +12,6 @@ namespace DB6_Capstone_G3.Models
 {
     public class DAL
     {
-        public static MySqlConnection Database;
         private static HttpClient client = null;
         private static HttpClient GetHttpClient()
         {
@@ -25,10 +24,10 @@ namespace DB6_Capstone_G3.Models
             return client;
         }
 
-        public async static Task<Cocktail> GetCocktailByName(string userSearch)
+        public async static Task<IEnumerable<Cocktail>> GetCocktailsByName(string userSearch)
         {
             var connection = await GetHttpClient().GetAsync($"www.thecocktaildb.com/api/json/v1/1/search.php?s={userSearch}");
-            Cocktail response = await connection.Content.ReadAsAsync<Cocktail>();
+            IEnumerable<Cocktail> response = await connection.Content.ReadAsAsync<IEnumerable<Cocktail>>();
             return response;
         }
 
@@ -37,6 +36,52 @@ namespace DB6_Capstone_G3.Models
             var connection = await GetHttpClient().GetAsync($"www.thecocktaildb.com/api/json/v1/1/filter.php?i={userSearch}");
             Cocktail[] response = await connection.Content.ReadAsAsync<Cocktail[]>();
             return response;
+        }
+
+        public async static Task<Cocktail[]> GetCocktailsByFirstLetter(char userSearch)
+        {
+            var connection = await GetHttpClient().GetAsync($"www.thecocktaildb.com/api/json/v1/1/search.php?f={userSearch}");
+            Cocktail[] response = await connection.Content.ReadAsAsync<Cocktail[]>();
+            return response;
+        }
+
+        public static MySqlConnection Database;
+        public static User saveUser(string firstName, string lastName, string phoneNumber)
+        {
+            User user = new User()
+            {
+                firstName = firstName,
+                lastName = lastName,
+                phoneNumber = phoneNumber
+            };
+
+            Database.Insert(user);
+            return user;
+        }
+
+        public static Event saveEvent(int idUser, string city, string state)
+        {
+            Event newEvent = new Event()
+            {
+                idUser = idUser,
+                date = DateTime.Now,
+                city = city,
+                state = state
+            };
+
+            Database.Insert(newEvent);
+            return newEvent;
+        }
+        
+        public static Cocktail saveCocktail(int idEvent, int idDrink, string userName)
+        {
+            Cocktail cocktail = new Cocktail()
+            {
+                idDrink = idDrink
+            };
+
+            Database.Insert(cocktail);
+            return cocktail;
         }
     }
 }
