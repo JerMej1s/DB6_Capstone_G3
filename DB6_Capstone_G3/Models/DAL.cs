@@ -12,8 +12,8 @@ namespace DB6_Capstone_G3.Models
 {
     public class DAL
     {
-        private static HttpClient client = null;
-        private static HttpClient GetHttpClient()
+        public static HttpClient client = null;
+        public static HttpClient GetHttpClient()
         {
             if (client is null)
             {
@@ -24,23 +24,24 @@ namespace DB6_Capstone_G3.Models
             return client;
         }
 
-        public async static Task<IEnumerable<Cocktail>> GetCocktailsByName(string userSearch)
+        public async static Task<CocktailResponse> GetCocktailsByName(string userSearch)
         {
-            var connection = await GetHttpClient().GetAsync($"www.thecocktaildb.com/api/json/v1/1/search.php?s={userSearch}");
-            IEnumerable<Cocktail> response = await connection.Content.ReadAsAsync<IEnumerable<Cocktail>>();
+            var connection = await GetHttpClient().GetAsync($"api/json/v1/1/search.php?s={userSearch}");
+            //IEnumerable<Cocktail> response = await connection.Content.ReadAsAsync<IEnumerable<Cocktail>>();
+            CocktailResponse response = await connection.Content.ReadAsAsync<CocktailResponse>();
             return response;
         }
 
         public async static Task<IEnumerable<Cocktail>> GetCocktailsByIngredient(string userSearch)
         {
-            var connection = await GetHttpClient().GetAsync($"www.thecocktaildb.com/api/json/v1/1/filter.php?i={userSearch}");
+            var connection = await GetHttpClient().GetAsync($"api/json/v1/1/filter.php?i={userSearch}");
             IEnumerable<Cocktail> response = await connection.Content.ReadAsAsync<IEnumerable<Cocktail>>();
             return response;
         }
 
         public async static Task<IEnumerable<Cocktail>> GetCocktailsByFirstLetter(char userSearch)
         {
-            var connection = await GetHttpClient().GetAsync($"www.thecocktaildb.com/api/json/v1/1/search.php?f={userSearch}");
+            var connection = await GetHttpClient().GetAsync($"api/json/v1/1/search.php?f={userSearch}");
             IEnumerable<Cocktail> response = await connection.Content.ReadAsAsync<IEnumerable<Cocktail>>();
             return response;
         }

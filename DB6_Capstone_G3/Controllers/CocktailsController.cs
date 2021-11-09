@@ -12,24 +12,28 @@ namespace DB6_Capstone_G3.Controllers
     [ApiController]
     public class CocktailsController : Controller
     {
-        [HttpGet("cocktail/{drinkName}")]
-        public async Task<IEnumerable<Cocktail>> GetDrinkName(string drinkName)
+        [HttpGet("test")]
+        public async Task<CocktailResponse> runtest()
         {
-            return await DAL.GetCocktailsByName(drinkName);
+            return await DAL.GetCocktailsByName("margarita");
         }
 
-        [HttpGet("cocktail/{ingredient}")]
-        public async Task<IEnumerable<Cocktail>> GetDrinkNameByIngredient(string ingredient)
-        {
-            return await DAL.GetCocktailsByIngredient(ingredient);
-        }
+        //[HttpGet("cocktail/{drinkName}")]
+        //public async Task<IEnumerable<Cocktail>> GetDrinkName(string drinkName)
+        //{
+        //    return await DAL.GetCocktailsByName(drinkName);
+        //}
 
-        [HttpGet("cocktail/{firstLetterSearch}")]
-        public async Task<IEnumerable<Cocktail>> GetDrinkNameByFirstLetter(char firstLetterSearch)
-        {
-            return await DAL.GetCocktailsByFirstLetter(firstLetterSearch);
-        }
+        //[HttpGet("cocktail/ingredient/{ingredient}")]
+        //public async Task<IEnumerable<Cocktail>> GetDrinkNameByIngredient(string ingredient)
+        //{
+        //    return await DAL.GetCocktailsByIngredient(ingredient);
+        //}
 
-
+        //[HttpGet("cocktail/letter/{firstLetterSearch}")]
+        //public async Task<IEnumerable<Cocktail>> GetDrinkNameByFirstLetter(char firstLetterSearch)
+        //{
+        //    return await DAL.GetCocktailsByFirstLetter(firstLetterSearch);
+        //}
     }
 }
