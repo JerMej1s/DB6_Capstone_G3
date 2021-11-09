@@ -1,5 +1,6 @@
 export interface Cocktail {
   idDrink: number,
+  idEvent: number,
   strDrink: String,
   strInstructions: String,
   strDrinkThumb: String,

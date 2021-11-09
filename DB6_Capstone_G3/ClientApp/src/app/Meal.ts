@@ -1,5 +1,6 @@
 export interface Meal {
   idMeal: number,
+  idEvent: number,
   strMeal: String,
   strInstructions: String,
   strMealThumb: String,
