@@ -45,7 +45,7 @@ namespace DB6_Capstone_G3.Models
             return response;
         }
 
-        public static MySqlConnection Database;
+        public static MySqlConnection db;
         public static User saveUser(string firstName, string lastName, string phoneNumber)
         {
             User user = new User()
@@ -55,33 +55,64 @@ namespace DB6_Capstone_G3.Models
                 phoneNumber = phoneNumber
             };
 
-            Database.Insert(user);
+            db.Insert(user);
             return user;
         }
 
-        public static Event saveEvent(int idUser, string city, string state)
+        public static Event saveEvent(int idUser, DateTime date, string city, string state)
         {
             Event newEvent = new Event()
             {
                 idUser = idUser,
-                date = DateTime.Now,
+                date = date,
                 city = city,
                 state = state
             };
 
-            Database.Insert(newEvent);
+            db.Insert(newEvent);
             return newEvent;
         }
         
-        public static Cocktail saveCocktail(int idEvent, int idDrink, string userName)
+        public static Cocktail saveCocktailToEvent(int idDrink, int idEvent)
         {
             Cocktail cocktail = new Cocktail()
             {
-                idDrink = idDrink
+                idDrink = idDrink,
+                idEvent = idEvent
             };
 
-            Database.Insert(cocktail);
+            db.Insert(cocktail);
             return cocktail;
+        }
+
+        public static Meal saveMealToEvent(int idMeal, int idEvent)
+        {
+            Meal meal = new Meal()
+            {
+                idMeal = idMeal,
+                idEvent = idEvent
+            };
+
+            db.Insert(meal);
+            return meal;
+        }
+
+        public static IEnumerable<Event> getEventsForUser(int idUser)
+        {
+            IEnumerable<Event> result = db.Query<Event>("select * from event where idUser = @idUser", idUser);
+            return result;
+        }
+
+        public static IEnumerable<Cocktail> getCocktailsForEvent(string idEvent)
+        {
+            IEnumerable<Cocktail> result = db.Query<Cocktail>("select * from cocktail where idEvent = @idEvent", idEvent);
+            return result;
+        }
+
+        public static IEnumerable<Meal> getMealsForEvent(string idEvent)
+        {
+            IEnumerable<Meal> result = db.Query<Meal>("select * from meal where idEvent = @idEvent", idEvent);
+            return result;
         }
     }
 }
