@@ -22,7 +22,7 @@ namespace DB6_Capstone_G3
         public void ConfigureServices(IServiceCollection services)
         {
             string connstring = Configuration.GetConnectionString("db");
-            Models.DAL.Database = new MySqlConnection(connstring);
+            Models.DAL.db = new MySqlConnection(connstring);
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
