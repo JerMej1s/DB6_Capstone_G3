@@ -31,17 +31,17 @@ namespace DB6_Capstone_G3.Models
             return response;
         }
 
-        public async static Task<Cocktail[]> GetCocktailsByIngredient(string userSearch)
+        public async static Task<IEnumerable<Cocktail>> GetCocktailsByIngredient(string userSearch)
         {
             var connection = await GetHttpClient().GetAsync($"www.thecocktaildb.com/api/json/v1/1/filter.php?i={userSearch}");
-            Cocktail[] response = await connection.Content.ReadAsAsync<Cocktail[]>();
+            IEnumerable<Cocktail> response = await connection.Content.ReadAsAsync<IEnumerable<Cocktail>>();
             return response;
         }
 
-        public async static Task<Cocktail[]> GetCocktailsByFirstLetter(char userSearch)
+        public async static Task<IEnumerable<Cocktail>> GetCocktailsByFirstLetter(char userSearch)
         {
             var connection = await GetHttpClient().GetAsync($"www.thecocktaildb.com/api/json/v1/1/search.php?f={userSearch}");
-            Cocktail[] response = await connection.Content.ReadAsAsync<Cocktail[]>();
+            IEnumerable<Cocktail> response = await connection.Content.ReadAsAsync<IEnumerable<Cocktail>>();
             return response;
         }
 
