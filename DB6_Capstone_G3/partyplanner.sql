@@ -5,12 +5,14 @@ use partyplanner;
 create table cocktail (
     idDrink int not null,
     idEvent int,
+    strDrink varchar(30),
     primary key(idDrink)
 );
 
 create table meal (
 	idMeal int not null,
     idEvent int,
+    strMeal varchar(50),
     primary key(idMeal)
 );
 
