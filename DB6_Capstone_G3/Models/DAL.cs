@@ -95,14 +95,14 @@ namespace DB6_Capstone_G3.Models
 
         // DAL for database
         public static MySqlConnection db;
-        public static User SaveUser(string firstName, string lastName, string phoneNumber, string username, string password)
+        public static User SaveUser(string firstName, string lastName, string phoneNumber, string email, string password)
         {
             User user = new User()
             {
                 firstName = firstName,
                 lastName = lastName,
                 phoneNumber = phoneNumber,
-                username = username,
+                email = email,
                 password = password
             };
 
