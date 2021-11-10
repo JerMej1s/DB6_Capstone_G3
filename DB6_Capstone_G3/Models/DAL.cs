@@ -95,16 +95,24 @@ namespace DB6_Capstone_G3.Models
 
         // DAL for database
         public static MySqlConnection db;
-        public static User SaveUser(string firstName, string lastName, string phoneNumber)
+        public static User SaveUser(string firstName, string lastName, string phoneNumber, string username, string password)
         {
             User user = new User()
             {
                 firstName = firstName,
                 lastName = lastName,
-                phoneNumber = phoneNumber
+                phoneNumber = phoneNumber,
+                username = username,
+                password = password
             };
 
             db.Insert(user);
+            return user;
+        }
+
+        public static User GetUserByUsername(string username, string password)
+        {
+            User user = db.QuerySingle<User>($"select * from user where username = @username", username);
             return user;
         }
 

@@ -21,6 +21,8 @@ create table user (
     firstName varchar(30),
     lastName varchar(30),
     phoneNumber varchar(20),
+    userName varchar(20) unique,
+    password varchar(10),
     primary key(idUser)   
 );
 
