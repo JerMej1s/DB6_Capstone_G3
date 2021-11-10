@@ -12,39 +12,89 @@ namespace DB6_Capstone_G3.Models
 {
     public class DAL
     {
-        public static HttpClient client = null;
-        public static HttpClient GetHttpClient()
+        // DAL for cocktail API
+        public static HttpClient cocktailClient = null;
+        public static HttpClient GetHttpCocktailClient()
         {
-            if (client is null)
+            if (cocktailClient is null)
             {
-                client = new HttpClient();
-                client.BaseAddress = new Uri("https://www.thecocktaildb.com/");
+                cocktailClient = new HttpClient();
+                cocktailClient.BaseAddress = new Uri("https://www.thecocktaildb.com/");
             }
 
-            return client;
+            return cocktailClient;
         }
 
         public async static Task<CocktailResponse> GetCocktailsByName(string userSearch)
         {
-            var connection = await GetHttpClient().GetAsync($"api/json/v1/1/search.php?s={userSearch}");
+            var connection = await GetHttpCocktailClient().GetAsync($"api/json/v1/1/search.php?s={userSearch}");
             CocktailResponse response = await connection.Content.ReadAsAsync<CocktailResponse>();
             return response;
         }
 
         public async static Task<CocktailResponse> GetCocktailsByIngredient(string userSearch)
         {
-            var connection = await GetHttpClient().GetAsync($"api/json/v1/1/filter.php?i={userSearch}");
+            var connection = await GetHttpCocktailClient().GetAsync($"api/json/v1/1/filter.php?i={userSearch}");
             CocktailResponse response = await connection.Content.ReadAsAsync<CocktailResponse>();
             return response;
         }
 
         public async static Task<CocktailResponse> GetCocktailsByFirstLetter(char userSearch)
         {
-            var connection = await GetHttpClient().GetAsync($"api/json/v1/1/search.php?f={userSearch}");
+            var connection = await GetHttpCocktailClient().GetAsync($"api/json/v1/1/search.php?f={userSearch}");
             CocktailResponse response = await connection.Content.ReadAsAsync<CocktailResponse>();
             return response;
         }
 
+        public async static Task<CocktailResponse> GetRandomCocktail()
+        {
+            var connection = await GetHttpCocktailClient().GetAsync("api/json/v1/1/random.php");
+            CocktailResponse response = await connection.Content.ReadAsAsync<CocktailResponse>();
+            return response;
+        }
+
+        // DAL for meal API
+        public static HttpClient mealClient = null;
+        public static HttpClient GetHttpMealClient()
+        {
+            if (mealClient is null)
+            {
+                mealClient = new HttpClient();
+                mealClient.BaseAddress = new Uri("https://www.themealdb.com/");
+            }
+
+            return mealClient;
+        }
+
+        public async static Task<MealResponse> GetMealsByName(string userSearch)
+        {
+            var connection = await GetHttpMealClient().GetAsync($"api/json/v1/1/search.php?s={userSearch}");
+            MealResponse response = await connection.Content.ReadAsAsync<MealResponse>();
+            return response;
+        }
+
+        public async static Task<MealResponse> GetMealsByIngredient(string userSearch)
+        {
+            var connection = await GetHttpMealClient().GetAsync($"api/json/v1/1/filter.php?i={userSearch}");
+            MealResponse response = await connection.Content.ReadAsAsync<MealResponse>();
+            return response;
+        }
+
+        public async static Task<MealResponse> GetMealsByFirstLetter(char userSearch)
+        {
+            var connection = await GetHttpMealClient().GetAsync($"api/json/v1/1/search.php?f={userSearch}");
+            MealResponse response = await connection.Content.ReadAsAsync<MealResponse>();
+            return response;
+        }
+
+        public async static Task<MealResponse> GetRandomMeal()
+        {
+            var connection = await GetHttpMealClient().GetAsync("api/json/v1/1/random.php");
+            MealResponse response = await connection.Content.ReadAsAsync<MealResponse>();
+            return response;
+        }
+
+        // DAL for database
         public static MySqlConnection db;
         public static User saveUser(string firstName, string lastName, string phoneNumber)
         {
@@ -109,9 +159,9 @@ namespace DB6_Capstone_G3.Models
             return result;
         }
 
-        public static IEnumerable<Meal> getMealsForEvent(string idEvent)
+        public static IEnumerable<Meals> getMealsForEvent(string idEvent)
         {
-            IEnumerable<Meal> result = db.Query<Meal>("select * from meal where idEvent = @idEvent", idEvent);
+            IEnumerable<Meals> result = db.Query<Meals>("select * from meal where idEvent = @idEvent", idEvent);
             return result;
         }
     }
