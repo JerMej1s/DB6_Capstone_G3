@@ -21,25 +21,25 @@ namespace DB6_Capstone_G3.Controllers
             return View();
         }
 
-        public IActionResult AddUser(string firstName, string lastName, string phoneNumber, string username, string password)
+        public IActionResult AddUser(string firstName, string lastName, string phoneNumber, string email, string password)
         {
-            User user = DAL.SaveUser(firstName, lastName, phoneNumber, username, password);
+            User user = DAL.SaveUser(firstName, lastName, phoneNumber, email, password);
             return Redirect($"home/{user.idUser}");
         }
 
         [HttpGet("login")]
-        public IActionResult UserLogin(string username, string password)
+        public IActionResult UserLogin(string email, string password)
         {
-            User user = DAL.GetUserByUsername(username, password);
+            User user = DAL.GetUserByEmail(email, password);
 
             if (user is null)
             {
-                ViewData["InvalidUsername"] = "Incorrect username. Please try again.";
+                ViewData["InvalidUsername"] = "Incorrect email. Please try again.";
                 return View("login");
             }
             else if (password != user.password)
             {
-                ViewData["username"] = user.username;
+                ViewData["username"] = user.email;
                 ViewData["InvalidPassword"] = "Incorrect password. Please try again.";
                 return View("login");
             }
