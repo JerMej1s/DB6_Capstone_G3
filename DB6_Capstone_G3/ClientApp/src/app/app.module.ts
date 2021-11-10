@@ -10,9 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
-import { EventsComponent } from './events/events.component';
-import { CocktailsComponent } from './cocktails/cocktails.component';
 import { MealsComponent } from './meals/meals.component';
+import { CocktailsComponent } from './cocktails/cocktails.component';
+import { EventsComponent } from './events/events.component';
+import { CocktailService } from './cocktail.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { MealsComponent } from './meals/meals.component';
       { path: 'meals', component: MealsComponent },
     ])
   ],
-  providers: [],
+  providers: [CocktailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
