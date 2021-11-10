@@ -10,6 +10,9 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
+import { EventsComponent } from './events/events.component';
+import { CocktailsComponent } from './cocktails/cocktails.component';
+import { MealsComponent } from './meals/meals.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { LoginComponent } from './login/login.component';
     CounterComponent,
     FetchDataComponent,
     LoginComponent,
+    EventsComponent,
+    CocktailsComponent,
+    MealsComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -29,6 +35,9 @@ import { LoginComponent } from './login/login.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'events', component: EventsComponent },
+      { path: 'cocktails', component: CocktailsComponent },
+      { path: 'meals', component: MealsComponent },
     ])
   ],
   providers: [],
