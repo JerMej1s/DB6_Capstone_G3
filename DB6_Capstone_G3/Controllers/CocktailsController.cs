@@ -30,6 +30,12 @@ namespace DB6_Capstone_G3.Controllers
             return await DAL.GetCocktailsByFirstLetter(firstLetterSearch);
         }
 
+        [HttpGet("random")]
+        public async Task<CocktailResponse> GetRandomCocktail()
+        {
+            return await DAL.GetRandomCocktail();
+        }
+
         //[HttpGet("test")]
         //public async Task<CocktailResponse> runtest()
         //{
