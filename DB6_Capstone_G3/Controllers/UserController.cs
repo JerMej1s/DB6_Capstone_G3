@@ -30,7 +30,7 @@ namespace DB6_Capstone_G3.Controllers
         [HttpGet("login")]
         public IActionResult UserLogin(string email, string password)
         {
-            User user = DAL.GetUserByUsername(email, password);
+            User user = DAL.GetUserByEmail(email, password);
 
             if (user is null)
             {

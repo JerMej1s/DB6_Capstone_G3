@@ -110,9 +110,13 @@ namespace DB6_Capstone_G3.Models
             return user;
         }
 
-        public static User GetUserByUsername(string email, string password)
+        public static User GetUserByEmail(string email, string password)
         {
-            User user = db.QuerySingle<User>($"select * from user where username = @email", email);
+            User user = new User()
+            {
+
+            };
+                db.QuerySingle<User>($"select * from user where username = @email", email);
             return user;
         }
 
