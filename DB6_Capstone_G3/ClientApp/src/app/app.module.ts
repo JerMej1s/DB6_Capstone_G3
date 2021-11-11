@@ -7,8 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
 import { MealsComponent } from './meals/meals.component';
 import { CocktailsComponent } from './cocktails/cocktails.component';
@@ -22,8 +20,6 @@ import { RegisterComponent } from './register/register.component';
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     LoginComponent,
     EventsComponent,
     CocktailsComponent,
@@ -36,8 +32,6 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
       { path: 'events', component: EventsComponent },
       { path: 'cocktails', component: CocktailsComponent },
