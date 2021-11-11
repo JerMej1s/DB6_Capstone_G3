@@ -14,6 +14,7 @@ import { MealsComponent } from './meals/meals.component';
 import { CocktailsComponent } from './cocktails/cocktails.component';
 import { EventsComponent } from './events/events.component';
 import { CocktailService } from './cocktail.service';
+import { MealService } from './meal.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { CocktailService } from './cocktail.service';
       { path: 'meals', component: MealsComponent },
     ])
   ],
-  providers: [CocktailService],
+  providers: [CocktailService, MealService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
