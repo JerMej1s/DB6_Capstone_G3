@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace DB6_Capstone_G3.Controllers
 {
     [Route("[controller]")]
-    public class UserController : Controller
+    public class EventController : Controller
     {
         [HttpGet("save")]
-        public static User SaveUser(string firstName, string lastName, string phoneNumber, string email, string password)
+        public static Event SaveEvent(int idUser, string eventName, DateTime date, string city, string state)
         {
-            return DAL.SaveUser(firstName, lastName, phoneNumber, email, password);
+            return DAL.SaveEvent(idUser, eventName, date, city, state);
         }
     }
 }
