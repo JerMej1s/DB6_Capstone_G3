@@ -42,7 +42,7 @@ import { RegisterComponent } from './register/register.component';
       { path: 'events', component: EventsComponent },
       { path: 'cocktails', component: CocktailsComponent },
       { path: 'meals', component: MealsComponent },
-      { path: 'register', component: RegisterComponent },
+      { path: 'Register', component: RegisterComponent },
     ])
   ],
   providers: [CocktailService, MealService],
