@@ -15,6 +15,7 @@ import { CocktailsComponent } from './cocktails/cocktails.component';
 import { EventsComponent } from './events/events.component';
 import { CocktailService } from './cocktail.service';
 import { MealService } from './meal.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MealService } from './meal.service';
     EventsComponent,
     CocktailsComponent,
     MealsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,6 +42,7 @@ import { MealService } from './meal.service';
       { path: 'events', component: EventsComponent },
       { path: 'cocktails', component: CocktailsComponent },
       { path: 'meals', component: MealsComponent },
+      { path: 'register', component: RegisterComponent },
     ])
   ],
   providers: [CocktailService, MealService],
