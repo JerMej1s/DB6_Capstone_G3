@@ -53,7 +53,7 @@ export class AppComponent {
     let newevent = {
       userID: this.newUserId
     };
-      this.http.post<Event[]>('event/home', newevent).subscribe(
+      this.http.post<Event[]>('event/home', 1).subscribe(
         (result) => {
           this.myEvents = result;
           console.log(this.myEvents);

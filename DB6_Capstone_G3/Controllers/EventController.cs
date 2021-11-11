@@ -4,10 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace DB6_Capstone_G3.Controllers
 {
     [Route("[controller]")]
+    [ApiController]
     public class EventController : Controller
     {
         [HttpGet("save")]
@@ -16,8 +18,8 @@ namespace DB6_Capstone_G3.Controllers
             return DAL.SaveEvent(idUser, eventName, date, city, state);
         }
 
-        [HttpGet("home")]
-        public static IEnumerable<Event> GetEvents(int idUser)
+        [HttpPost("home")]
+        public IEnumerable<Event> GetEvents(int idUser)
         {
             return DAL.GetEventsForUser(idUser);
         }
