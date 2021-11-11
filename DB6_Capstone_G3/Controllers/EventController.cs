@@ -15,5 +15,11 @@ namespace DB6_Capstone_G3.Controllers
         {
             return DAL.SaveEvent(idUser, eventName, date, city, state);
         }
+
+        [HttpGet("home")]
+        public static IEnumerable<Event> GetEvents(int idUser)
+        {
+            return DAL.GetEventsForUser(idUser);
+        }
     }
 }
