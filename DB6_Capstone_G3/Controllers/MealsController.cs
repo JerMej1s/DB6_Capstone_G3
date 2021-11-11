@@ -36,7 +36,7 @@ namespace DB6_Capstone_G3.Controllers
             return await DAL.GetRandomMeal();
         }
 
-        [HttpGet("save")]
+        [HttpPost("save")]
         public Meal SaveMeal(int idMeal, int idEvent, string strMeal)
         {
             return DAL.SaveMealToEvent(idMeal, idEvent, strMeal);
