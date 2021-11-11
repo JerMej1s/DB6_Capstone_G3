@@ -36,7 +36,7 @@ namespace DB6_Capstone_G3.Controllers
             return await DAL.GetRandomCocktail();
         }
 
-        [HttpGet("save")]
+        [HttpPost("save")]
         public Cocktail SaveCocktail(int idDrink, int idEvent, string strDrink)
         {
             return DAL.SaveCocktailToEvent(idDrink, idEvent, strDrink);
