@@ -27,27 +27,27 @@ namespace DB6_Capstone_G3.Controllers
             return Redirect($"home/{user.idUser}");
         }
 
-        [HttpGet("login")]
-        public IActionResult UserLogin(string email, string password)
-        {
-            User user = DAL.GetUserByEmail(email, password);
+        //[HttpGet("login")]
+        //public IActionResult UserLogin(string email, string password)
+        //{
+        //    User user = DAL.ValidateUser(email, password);
 
-            if (user is null)
-            {
-                ViewData["InvalidUsername"] = "Incorrect email. Please try again.";
-                return View("login");
-            }
-            else if (password != user.password)
-            {
-                ViewData["username"] = user.email;
-                ViewData["InvalidPassword"] = "Incorrect password. Please try again.";
-                return View("login");
-            }
-            else
-            {
-                return Redirect($"home/{user.idUser}");
-            }
-        }
+        //    if (user is null)
+        //    {
+        //        ViewData["InvalidUsername"] = "Incorrect email. Please try again.";
+        //        return View("login");
+        //    }
+        //    else if (password != user.password)
+        //    {
+        //        ViewData["username"] = user.email;
+        //        ViewData["InvalidPassword"] = "Incorrect password. Please try again.";
+        //        return View("login");
+        //    }
+        //    else
+        //    {
+        //        return Redirect($"home/{user.idUser}");
+        //    }
+        //}
 
         [HttpGet("home/{idUser}")]
         public IActionResult HomePage(int idUser)

@@ -110,14 +110,30 @@ namespace DB6_Capstone_G3.Models
             return user;
         }
 
-        public static User GetUserByEmail(string email, string password)
+        public static User ValidateUser(string email, string password)
         {
             User user = new User()
             {
-
+                firstName = null,
+                lastName = null,
+                phoneNumber = null,
+                email = null,
+                password = null
             };
-                db.QuerySingle<User>($"select * from user where username = @email", email);
-            return user;
+
+            user = db.QuerySingle<User>($"select * from user where email = @email", email);
+
+            if (user is null)
+            {
+                // send user back to login screen with incorrect email message
+                return null;
+            }
+            else if (password != user.password)
+            {
+                // send user back to login screen with incorrect password message
+                return null;
+            }
+            else return user;
         }
 
         public static Event SaveEvent(int idUser, DateTime date, string city, string state)
