@@ -18,8 +18,10 @@ export class AppComponent {
   allMeals?: Meal = null;
   myEvents?: Event[] = null;
   newEvent = '';
+  newEventId = ''; newEventName = ''; newCity = ''; newdate = null; newState = '';
+
   newUserId = ''; newUserFN = ''; newUserLN = ''; newUserPhone = ''; newUserEmail = ''; newUserPW = '';
-  new
+
   constructor(private cocktailapi: CocktailService, private mealapi: MealService, private http: HttpClient) {
 
     cocktailapi.getDrink(
@@ -38,26 +40,25 @@ export class AppComponent {
   }
     saveEvent() {
       let newevent = {
-        userID: this.newUserId, userFN: this.newUserFN, userLN: this.newUserLN, userPhone: this.newUserPhone,
-        userEmail: this.newUserEmail, userPW: this.newUserPW,
+        eventId: this.newEventId, eventName: this.newEventName, eventCity: this.newCity, eventState: this.newState
       };
       this.http.post<Event>('event/save', newevent).subscribe(
         (result) => {
-          
+          this.getAllEvents();
         }
       )
     }
 
-    getAllEvents() {
-      let User = {
-        userID: this.newUserId
-      };
-      this.http.get<Event[]>('event/home', User).subscribe(
+  getAllEvents() {
+    let newevent = {
+      userID: this.newUserId
+    };
+      this.http.post<Event[]>('event/home', newevent).subscribe(
         (result) => {
-          this.myEvents.push();
+          this.myEvents = result;
           console.log(this.myEvents);
         }
-      )
+      );
   }
 
 
