@@ -15,6 +15,7 @@ create table user (
 create table event (
 	idEvent int not null auto_increment,
     idUser int,
+    eventName varchar(20),
     date DateTime,
     city varchar(85),
     state varchar(2),

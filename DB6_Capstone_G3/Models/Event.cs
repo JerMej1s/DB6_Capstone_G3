@@ -12,6 +12,7 @@ namespace DB6_Capstone_G3.Models
     {
         [Key]
         public int idEvent { get; set; }
+        public string eventName { get; set; }
         public int idUser { get; set; }
         public DateTime date { get; set; }
         public string city { get; set; }
