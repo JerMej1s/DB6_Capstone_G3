@@ -137,11 +137,12 @@ namespace DB6_Capstone_G3.Models
             else return user;
         }
 
-        public static Event SaveEvent(int idUser, DateTime date, string city, string state)
+        public static Event SaveEvent(int idUser, string eventName, DateTime date, string city, string state)
         {
             Event newEvent = new Event()
             {
                 idUser = idUser,
+                eventName = eventName,
                 date = date,
                 city = city,
                 state = state
@@ -151,24 +152,26 @@ namespace DB6_Capstone_G3.Models
             return newEvent;
         }
         
-        public static Cocktail SaveCocktailToEvent(int idDrink, int idEvent)
+        public static Cocktail SaveCocktailToEvent(int idDrink, int idEvent, string strDrink)
         {
             Cocktail cocktail = new Cocktail()
             {
                 idDrink = idDrink,
-                idEvent = idEvent
+                idEvent = idEvent,
+                strDrink = strDrink,
             };
 
             db.Insert(cocktail);
             return cocktail;
         }
 
-        public static Meal SaveMealToEvent(int idMeal, int idEvent)
+        public static Meal SaveMealToEvent(int idMeal, int idEvent, string strMeal)
         {
             Meal meal = new Meal()
             {
                 idMeal = idMeal,
-                idEvent = idEvent
+                idEvent = idEvent,
+                strMeal = strMeal
             };
 
             db.Insert(meal);
