@@ -13,16 +13,16 @@ namespace DB6_Capstone_G3.Models
     public class DAL
     {
         // DAL for cocktail API
-        public static HttpClient Client = null;
+        public static HttpClient cocktailClient = null;
         public static HttpClient GetHttpCocktailClient()
         {
-            if (Client is null)
+            if (cocktailClient is null)
             {
-                Client = new HttpClient();
-                Client.BaseAddress = new Uri("https://www.thecocktaildb.com/");
+                cocktailClient = new HttpClient();
+                cocktailClient.BaseAddress = new Uri("https://www.thecocktaildb.com/");
             }
 
-            return Client;
+            return cocktailClient;
         }
 
         public async static Task<CocktailResponse> GetCocktailsByName(string userSearch)
@@ -54,15 +54,16 @@ namespace DB6_Capstone_G3.Models
         }
 
         // DAL for meal API
+        public static HttpClient mealClient = null;
         public static HttpClient GetHttpMealClient()
         {
-            if (Client is null)
+            if (mealClient is null)
             {
-                Client = new HttpClient();
-                Client.BaseAddress = new Uri("https://www.themealdb.com/");
+                mealClient = new HttpClient();
+                mealClient.BaseAddress = new Uri("https://www.themealdb.com/");
             }
 
-            return Client;
+            return mealClient;
         }
 
         public async static Task<MealResponse> GetMealsByName(string userSearch)
