@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,8 +7,11 @@ import { Component } from '@angular/core';
 })
 /** events component*/
 export class EventsComponent {
+
+
+
     /** events ctor */
-    constructor() {
+    constructor(private http: HttpClient) {
 
     }
 }
