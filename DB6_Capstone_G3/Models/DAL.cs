@@ -180,7 +180,11 @@ namespace DB6_Capstone_G3.Models
 
         public static IEnumerable<Event> GetEventsForUser(int idUser)
         {
-            IEnumerable<Event> result = db.Query<Event>("select * from event where idUser = @idUser", idUser);
+            idUser = 1;
+            var pars = new {
+                theUser = idUser
+            };
+            IEnumerable<Event> result = db.Query<Event>("select * from event where idUser = @theUser", pars);
             return result;
         }
 
