@@ -11,18 +11,16 @@
   <input hidden type="number" id="idUser" name="idUser" /><br />
 
   <label for="eventName">Event Name:</label>
-  <input type="text" id="eventName" name="eventName" /><br />
+  <input type="text" [(ngModel)]="eventnaming"/><br />
 
   <label for="date">Date:</label>
-  <input type="datetime" id="date" name="date" /><br />
+  <input type="datetime" [(ngModel)]="editDate" /><br />
 
   <label for="city">City:</label>
-  <input type="text" id="state" name="city" /><br />
+  <input type="text" [(ngModel)]="editCity" /><br />
 
   <label for="state">State:</label>
-  <input type="text" id="state" name="state" /><br />
+  <input type="text" [(ngModel)]="editState" /><br />
 
-
-
-  <input type="submit" />
+  <button (click)="saveEvent()">SaveEvent</button>
 </div>

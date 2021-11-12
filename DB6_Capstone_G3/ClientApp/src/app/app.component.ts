@@ -12,12 +12,12 @@ import { Event } from './event'
 })
 export class AppComponent {
   title = 'app';
-
   myCocktails?: Cocktail[] = null;
   allCocktails?: Cocktail = null;
   allMeals?: Meal = null;
   myEvents?: Event[] = null;
   newEvent = '';
+ 
   newEventId = ''; newEventName = ''; newCity = ''; newdate = null; newState = '';
 
   newUserId = ''; newUserFN = ''; newUserLN = ''; newUserPhone = ''; newUserEmail = ''; newUserPW = '';
@@ -38,16 +38,13 @@ export class AppComponent {
       }
     )
   }
-    saveEvent() {
-      let newevent = {
-        eventId: this.newEventId, eventName: this.newEventName, eventCity: this.newCity, eventState: this.newState
-      };
-      this.http.post<Event>('event/save', newevent).subscribe(
-        (result) => {
-          this.getAllEvents();
-        }
-      )
-    }
+  saveEvent(theevent) {
+    this.http.post<Event>('event/save', theevent).subscribe(
+      (result) => {
+        this.getAllEvents();
+      }
+    )
+  }
 
   getAllEvents() {
     let newevent = {
