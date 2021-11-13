@@ -3,6 +3,7 @@
   overflow: hidden;
   background-size: cover;
   width: 100%;
+  /*min-height: 100vh;*/
   height: 100vh;
 }
 
@@ -14,7 +15,9 @@ form {
   background: rgb(1 1 1 / 0.8);
   width: 50%;
   margin-left: 25%;
+  /*margin-right: 10%;*/
   margin-top: 15%;
+  /*margin-bottom: 25%;*/
 }
 
 input[type=text], input[type=submit], input[type=email], input[type=datetime], input[type=password], button, textarea {
@@ -28,3 +31,14 @@ input[type=text], input[type=submit], input[type=email], input[type=datetime], i
   button[type=submit]:hover {
     background-color: lightgreen;
   }
+
+
+
+
+
+h2 {
+  color: beige;
+  font-size: 30px;
+  padding: 10px;
+  background: rgba(43, 225, 128, 0.3);
+}
