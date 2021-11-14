@@ -2,8 +2,8 @@
   background: url("../../Pictures/defaultimg.jpg") no-repeat;
   overflow: hidden;
   background-size: cover;
-  width: 100%;
-  height:100vh;
+  min-height: 100vh;
+  /*width: 100%;*/
   /*min-height: 100vh;*/
 }
 
@@ -12,12 +12,12 @@ h1 {
   color: beige;
   font-size: 50px;
   padding: 10px;
-  background: rgba(45, 140, 256, 0.3);
+  background: rgb(59 12 118 / 0.30);
 }
 
 h2 {
-  color: beige;
+  color: rgb(4 15 22);
   font-size: 30px;
   padding: 10px;
-  background: rgba(43, 225, 128, 0.3);
+  background: rgb(216 65 16 / 0.40);
 }
