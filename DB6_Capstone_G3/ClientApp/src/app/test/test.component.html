@@ -2,23 +2,44 @@
 <!--<h1>Test Component</h1>
 <div style="border: 1px solid red">test Component</div>-->
 
-<body >
-  <header id="backgroundphoto">
+<header id="backgroundphoto">
 
-    <!--<img class="container-fluid-background"src="cocktailvariety.jpg" alt="Girl in a jacket" width="1200" height="800">-->
+  
 
-    <div title="CF" class="container-fluid text-right">
 
-      <h1>The Cocktail Factory</h1>
-      <h2>Welcome Cocktail Enthusiasts</h2>
+  <form class="text-center border border-light p-5">
+    <p class="h4 mb-4">Please fill in form to create an account</p>
+
+    <div class="InputLabel">
+
+      <label for="FirstName">First Name</label><br />
+      <input type="text" id="FirstName" name="FirstName" /><br />
+
+      <label for="LastName">Last Name</label><br />
+      <input type="text" id="LastName" name="LastName" /><br />
+
+      <label for="email">Email</label><br />
+      <input type="email" id="email" name="email" placeholder="Email" required /><br />
+
+      <label for="Password">Password</label><br />
+      <input type="password" id="Password" name="Password" placeholder="Password" required /><br />
+
+      <label for="passwordrepeat"><b>Repeat Password</b></label><br />
+      <input type="password" placeholder="Repeat Password" name="passwordrepeat" id="passwordrepeat" required><br /><br />
+
+
+      <button type="submit">Login</button>
+
 
     </div>
+    <br />
+    <p>
+      Already have an account?
+      <br />
+      <a href="/login">Login</a>
+    </p>
 
-    <!--<div class="container-fluid text-right">-->
-    <!--<h1>The Cocktail Factory</h1>-->
-    <!--<h2>Welcome Cocktail Enthusiasts</h2>
-  </div>-->
+  </form>
 
+</header>
 
-  </header>
-</body>
