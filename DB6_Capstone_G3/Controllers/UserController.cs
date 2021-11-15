@@ -15,5 +15,11 @@ namespace DB6_Capstone_G3.Controllers
         {
             return DAL.SaveUser(user);
         }
+
+        [HttpGet("home")]
+        public static User GetUser(string email, string password)
+        {
+            return DAL.ValidateUser(email, password);
+        }
     }
 }
