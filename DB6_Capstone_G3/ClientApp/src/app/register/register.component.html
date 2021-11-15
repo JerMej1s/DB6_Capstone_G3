@@ -6,24 +6,24 @@
     <div class="InputLabel">
 
       <label for="firstName">First Name</label><br />
-      <input type="text" id="firstName" name="firstName" required/><br />
+      <input type="text" id="firstName" name="firstName" [(ngModel)] ="editFN" required/><br />
 
       <label for="lastName">Last Name</label><br />
-      <input type="text" id="lastName" name="lastName" required/><br />
+      <input type="text" id="lastName" name="lastName" [(ngModel)] = "editLN" required/><br />
 
       <label for="phoneNumber">Phone Number</label><br />
-      <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)] = "userPN"placeholder="(313) 555-1234" required /><br />
+      <input type="tel" id="phoneNumber" name="phoneNumber" [(ngModel)] = "editPN" placeholder="(313) 555-1234" required /><br />
 
       <label for="email">Email</label><br />
-      <input type="email" id="email" name="email" placeholder="Email" required /><br />
+      <input type="email" id="email" name="email" [(ngModel)] = "editEmail" placeholder="Email" required /><br />
 
       <label for="Password">Password</label><br />
-      <input type="password" id="Password" name="Password" placeholder="Password" required /><br />
+      <input type="text" id="Password" name="Password" [(ngModel)] = "editPass" placeholder="Password" required /><br />
 
-      <label for="passwordrepeat"><b>Repeat Password</b></label><br />
-      <input type="password" placeholder="Repeat Password" name="passwordrepeat" id="passwordrepeat" required><br /><br />
+      <!--<label for="passwordrepeat"><b>Repeat Password</b></label><br />
+      <input type="password" placeholder="Repeat Password" name="passwordrepeat" id="passwordrepeat" required><br /><br />-->
 
-      <button type="submit">Submit</button>
+      <button (click)="saveUserButton()" type="submit">Submit</button>
 
     </div>
 

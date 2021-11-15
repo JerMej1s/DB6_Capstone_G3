@@ -7,6 +7,8 @@ import { Meal } from './Meal';
 import { MealService } from './meal.service';
 import { Event } from './event'
 import { Router } from '@angular/router';
+import { User } from './user';
+
 
 @Component({
   selector: 'app-root',
@@ -22,6 +24,7 @@ export class AppComponent implements OnInit {
   allCocktails?: Cocktail = null;
   allMeals?: Meal = null;
   testevent: Event;
+  testUser: User;
   myEvents?: Event[] = null;
  
   newEventId = ''; newEventName = ''; newCity = ''; newdate = null; newState = '';
@@ -46,17 +49,17 @@ export class AppComponent implements OnInit {
     )
   }
 
-  getAllEvents() {
-    let newevent = {
-      userID: this.newUserId
-    };
-      this.http.post<Event[]>('event/home', 1).subscribe(
-        (result) => {
-          this.myEvents = result;
-          console.log(this.myEvents);
-        }
-      );
-  }
+  //getAllEvents() {
+  //  let newevent = {
+  //    userID: this.newUserId
+  //  };
+  //    this.http.post<Event[]>('event/home', 1).subscribe(
+  //      (result) => {
+  //        this.myEvents = result;
+  //        console.log(this.myEvents);
+  //      }
+  //    );
+  //}
 
 
   getMeal() {
