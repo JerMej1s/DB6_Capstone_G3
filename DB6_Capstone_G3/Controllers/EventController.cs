@@ -8,14 +8,16 @@ using Microsoft.AspNetCore.Http;
 
 namespace DB6_Capstone_G3.Controllers
 {
-    [Route("[controller]")]
+    [Route("event")]
     [ApiController]
     public class EventController : Controller
     {
-        [HttpGet("save")]
-        public static Event SaveEvent(int idUser, string eventName, DateTime date, string city, string state)
+        [HttpPost("save")]
+        //public Event SaveEvent(int idUser, string eventName, DateTime date, string city, string state)
+        public Event SaveEvent(Event evt)
         {
-            return DAL.SaveEvent(idUser, eventName, date, city, state);
+            evt.idUser = 1;
+            return DAL.SaveEvent(evt.idUser, evt.eventName, evt.date, evt.city, evt.state);
         }
 
         [HttpPost("home")]

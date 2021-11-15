@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit,} from '@angular/core';
+import { EventsComponent } from "./events/events.component";
 import { Cocktail } from './Cocktail';
 import { CocktailService } from './cocktail.service';
 import { Meal } from './Meal';
@@ -11,13 +12,18 @@ import { Event } from './event'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  ngOnInit(){
+
+}
+
   title = 'app';
   myCocktails?: Cocktail[] = null;
   allCocktails?: Cocktail = null;
   allMeals?: Meal = null;
+  
   myEvents?: Event[] = null;
-  newEvent = '';
+  theevent: Event;
  
   newEventId = ''; newEventName = ''; newCity = ''; newdate = null; newState = '';
 
@@ -40,6 +46,8 @@ export class AppComponent {
     )
   }
   saveEvent(theevent) {
+    console.log("inside event");
+    console.log(theevent);
     this.http.post<Event>('event/save', theevent).subscribe(
       (result) => {
         this.getAllEvents();
