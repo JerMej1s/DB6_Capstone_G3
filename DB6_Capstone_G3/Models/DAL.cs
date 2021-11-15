@@ -96,17 +96,8 @@ namespace DB6_Capstone_G3.Models
 
         // DAL for database
         public static MySqlConnection db;
-        public static User SaveUser(string firstName, string lastName, string phoneNumber, string email, string password)
+        public static User SaveUser(User user)
         {
-            User user = new User()
-            {
-                firstName = firstName,
-                lastName = lastName,
-                phoneNumber = phoneNumber,
-                email = email,
-                password = password
-            };
-
             db.Insert(user);
             return user;
         }
@@ -137,43 +128,20 @@ namespace DB6_Capstone_G3.Models
             else return user;
         }
 
-        public static Event SaveEvent(int idUser, string eventName, DateTime date, string city, string state)
+        public static Event SaveEvent(Event newEvent)
         {
-            Event newEvent = new Event()
-            {
-                idUser = idUser,
-                eventName = eventName,
-                date = date,
-                city = city,
-                state = state
-            };
-
             db.Insert(newEvent);
             return newEvent;
         }
         
-        public static Cocktail SaveCocktailToEvent(int idDrink, int idEvent, string strDrink)
+        public static Cocktail SaveCocktailToEvent(Cocktail cocktail)
         {
-            Cocktail cocktail = new Cocktail()
-            {
-                idDrink = idDrink,
-                idEvent = idEvent,
-                strDrink = strDrink,
-            };
-
             db.Insert(cocktail);
             return cocktail;
         }
 
-        public static Meal SaveMealToEvent(int idMeal, int idEvent, string strMeal)
+        public static Meal SaveMealToEvent(Meal meal)
         {
-            Meal meal = new Meal()
-            {
-                idMeal = idMeal,
-                idEvent = idEvent,
-                strMeal = strMeal
-            };
-
             db.Insert(meal);
             return meal;
         }

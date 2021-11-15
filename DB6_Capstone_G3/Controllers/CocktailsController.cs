@@ -37,15 +37,9 @@ namespace DB6_Capstone_G3.Controllers
         }
 
         [HttpPost("save")]
-        public Cocktail SaveCocktail(int idDrink, int idEvent, string strDrink)
+        public Cocktail SaveCocktail(Cocktail cocktail)
         {
-            return DAL.SaveCocktailToEvent(idDrink, idEvent, strDrink);
+            return DAL.SaveCocktailToEvent(cocktail);
         }
-
-        //[HttpGet("test")]
-        //public async Task<CocktailResponse> runtest()
-        //{
-        //    return await DAL.GetCocktailsByName("margarita");
-        //}
     }
 }
