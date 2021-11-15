@@ -18,6 +18,9 @@ import { TestComponent } from './test/test.component';
 import { LogintestComponent } from './logintest/logintest.component';
 import { MealstestComponent } from './mealstest/mealstest.component';
 import { CocktailstestComponent } from './cocktailstest/cocktailstest.component';
+import { AuthService } from './auth.service';
+import { EventsaveService } from './eventsave.service';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,7 @@ import { CocktailstestComponent } from './cocktailstest/cocktailstest.component'
       { path: 'cocktailstest', component: CocktailstestComponent },
     ])
   ],
-  providers: [CocktailService, MealService],
+  providers: [CocktailService, MealService, EventsaveService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
