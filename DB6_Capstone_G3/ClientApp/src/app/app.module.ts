@@ -16,6 +16,8 @@ import { MealService } from './meal.service';
 import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 import { LogintestComponent } from './logintest/logintest.component';
+import { AuthService } from './auth.service';
+import { EventsaveService } from './eventsave.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import { LogintestComponent } from './logintest/logintest.component';
       { path: 'logintest', component: LogintestComponent },
     ])
   ],
-  providers: [CocktailService, MealService],
+  providers: [CocktailService, MealService, EventsaveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
