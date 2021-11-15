@@ -1,21 +1,39 @@
-<h1>Register Here</h1>
+<header id="backgroundphoto">
 
-<form>
+  <form class="text-center border border-light p-5">
+    <p class="h4 mb-4">Please fill in form to create an account</p>
 
-  <div class="InputLabel">
-    <label for="FirstName">First Name:</label>
-    <input type="text" id="FirstName" name="FirstName" /><br />
+    <div class="InputLabel">
 
-    <label for="LastName">Last Name:</label>
-    <input type="text" id="LastName" name="LastName" /><br />
+      <label for="firstName">First Name</label><br />
+      <input type="text" id="firstName" name="firstName" required/><br />
 
-    <label for="EmailAddress">Email:</label>
-    <input type="email" id="EmailAddress" name="EmailAddress" placeholder="example@domain.com"/><br />
+      <label for="lastName">Last Name</label><br />
+      <input type="text" id="lastName" name="lastName" required/><br />
 
-    <label for="PhoneNumber">Phone:</label>
-    <input type="tel" id="PhoneNumber" name="PhoneNumber" placeholder="(313) 555-1234"/><br />
+      <label for="phoneNumber">Phone Number</label><br />
+      <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="(313) 555-1234" required /><br />
 
-    <input type="submit" />
-  </div>
+      <label for="email">Email</label><br />
+      <input type="email" id="email" name="email" placeholder="Email" required /><br />
+
+      <label for="Password">Password</label><br />
+      <input type="password" id="Password" name="Password" placeholder="Password" required /><br />
+
+      <label for="passwordrepeat"><b>Repeat Password</b></label><br />
+      <input type="password" placeholder="Repeat Password" name="passwordrepeat" id="passwordrepeat" required><br /><br />
+
+      <button type="submit">Submit</button>
+
+    </div>
+
+    <br />
+    <p>Already have an account?
+      <br />
+      <a href="/login">Login</a>
+    </p>
 
   </form>
+
+</header>
+

@@ -1,0 +1,19 @@
+#backgroundphoto {
+  background: url("../../Pictures/defaultimg.jpg") no-repeat;
+  background-size: 100% 100%;
+  height: 800px;
+}
+
+h1 {
+  color: beige;
+  font-size: 50px;
+  padding: 10px;
+  background: rgb(59 12 118 / 0.30);
+}
+
+h2 {
+  color: rgb(4 15 22);
+  font-size: 30px;
+  padding: 10px;
+  background: rgb(216 65 16 / 0.40);
+}
