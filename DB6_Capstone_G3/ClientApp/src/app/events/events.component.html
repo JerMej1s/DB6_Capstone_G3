@@ -1,23 +1,29 @@
 
 
 
-  <h1>Create Event Here</h1>
+<header id="backgroundphoto">
 
-  <div class="InputLabel">
+  
+
+  <div class="text-center border border-light p-5">
+    <p class="h4 mb-4">Please fill in form to book event</p>
+
     <label hidden for="idUser"></label>
     <input hidden type="number" id="idUser" name="idUser" /><br />
 
-    <label for="eventName">Event Name:</label>
+    <label for="eventName">Event Name</label><br />
     <input type="text" [(ngModel)]="eventnaming" /><br />
 
-    <label for="date">Date:</label>
+    <label for="date">Date</label><br />
     <input type="datetime" [(ngModel)]="editDate" /><br />
 
-    <label for="city">City:</label>
+    <label for="city">City</label><br />
     <input type="text" [(ngModel)]="editCity" /><br />
 
-    <label for="state">State!!:</label>
-    <input type="text" [(ngModel)]="editState" /><br />
+    <label for="state">State</label><br />
+    <input type="text" [(ngModel)]="editState" /><br /><br />
 
-    <button (click)="saveButtonClicked()">SaveEvent</button>
+    <button (click)="saveButtonClicked()" type="submit">Submit</button>
   </div>
+
+</header>
