@@ -11,9 +11,9 @@ namespace DB6_Capstone_G3.Controllers
     public class UserController : Controller
     {
         [HttpGet("save")]
-        public static User SaveUser(string firstName, string lastName, string phoneNumber, string email, string password)
+        public static User SaveUser(User user)
         {
-            return DAL.SaveUser(firstName, lastName, phoneNumber, email, password);
+            return DAL.SaveUser(user);
         }
     }
 }

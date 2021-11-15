@@ -37,9 +37,9 @@ namespace DB6_Capstone_G3.Controllers
         }
 
         [HttpPost("save")]
-        public Meal SaveMeal(int idMeal, int idEvent, string strMeal)
+        public Meal SaveMeal(Meal meal)
         {
-            return DAL.SaveMealToEvent(idMeal, idEvent, strMeal);
+            return DAL.SaveMealToEvent(meal);
         }
     }
 }
