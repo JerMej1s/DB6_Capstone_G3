@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Event } from './event';
+import { User } from './user';
+
 
 @Injectable()
-export class EventsaveService {
+export class RegisterUserService {
   constructor(private http: HttpClient) {
-
   }
-  public saveEvent(theeventt, cb) {
+
+  public saveUser(theuser, cb) {
     console.log("inside event");
-    console.log(theeventt);
-    this.http.post<Event>('event/save', theeventt).subscribe(
+    console.log(theuser);
+    this.http.post<any>('user/save', theuser).subscribe(
       (result) => {
         console.log(result);
-        //this.getAllEvents();
         cb();
       }
     );

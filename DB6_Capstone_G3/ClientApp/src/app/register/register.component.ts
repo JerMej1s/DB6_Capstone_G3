@@ -1,14 +1,46 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { RegisterUserService } from '../registeruser.service';
+import { User } from '../user';
+
 
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
     styleUrls: ['./register.component.css']
 })
-/** Register component*/
-export class RegisterComponent {
-    /** Register ctor */
-    constructor() {
 
+export class RegisterComponent {
+
+  constructor(private registeruser: RegisterUserService, auth: AuthService) {
+  }
+  @Input() theuser: User =
+    {
+      idUser: null,
+      firstName: null,
+      lastName: null,
+      phoneNumber: null,
+      email: null,
+      password: null,
     }
+
+  editidUser: number = null;
+  editFN: string = '';
+  editLN: string = '';
+  editPN: string = '';
+  editEmail: string = '';
+  editPass: string = '';
+
+  saveUserButton() {
+    console.log("Clicked button")
+    this.theuser.idUser = this.editidUser;
+    this.theuser.firstName = this.editFN;
+    this.theuser.lastName = this.editLN;
+    this.theuser.phoneNumber = this.editPN;
+    this.theuser.email = this.editEmail;
+    this.theuser.password = this.editPass;
+    this.registeruser.saveUser(this.theuser, () => { });
+  }
+
 }

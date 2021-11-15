@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace DB6_Capstone_G3.Controllers
 {
-    [Route("[controller]")]
+    [Route("user")]
     public class UserController : Controller
     {
-        [HttpGet("save")]
-        public static User SaveUser(User user)
+        [HttpPost("save")]
+        public User SaveUser(User newUser)
         {
-            return DAL.SaveUser(user);
+            return DAL.SaveUser(newUser);
         }
 
         [HttpGet("home")]

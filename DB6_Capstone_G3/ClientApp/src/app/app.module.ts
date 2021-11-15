@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -20,6 +19,7 @@ import { MealstestComponent } from './mealstest/mealstest.component';
 import { CocktailstestComponent } from './cocktailstest/cocktailstest.component';
 import { AuthService } from './auth.service';
 import { EventsaveService } from './eventsave.service';
+import { RegisterUserService } from './registeruser.service';
 
 
 @NgModule({
@@ -54,7 +54,7 @@ import { EventsaveService } from './eventsave.service';
       { path: 'cocktailstest', component: CocktailstestComponent },
     ])
   ],
-  providers: [CocktailService, MealService, EventsaveService, AuthService],
+  providers: [CocktailService, MealService, EventsaveService, AuthService, RegisterUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
