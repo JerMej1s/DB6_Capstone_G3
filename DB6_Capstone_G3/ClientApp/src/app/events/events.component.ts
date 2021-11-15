@@ -1,8 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { AppComponent } from '../app.component';
-import { AuthService } from '../auth.service';
+import { Component, Input } from '@angular/core';
 import { EventsaveService } from '../eventsave.service';
 import { Event } from '../event';
 
@@ -24,14 +21,13 @@ export class EventsComponent {
       city: null,
       state: null,
     }
-  @Output() newparentevent: EventEmitter<Event> = new EventEmitter<Event>();
   eventID: number = null;
   eventnaming: string = '';
   editCity: string = '';
   editDate: DatePipe = null;
   editState: string = '';
 
-  constructor(private http: HttpClient, private eventsave: EventsaveService) {
+  constructor(private eventsave: EventsaveService) {
   }
 
   saveButtonClicked() {
@@ -43,7 +39,6 @@ export class EventsComponent {
     console.log('Here is the event:');
     console.log(this.theevent);
     console.log(this.eventsave);
-    //this.newparentevent.emit(this.theevent);
     this.eventsave.saveEvent(this.theevent, () => { }
     );
   }
