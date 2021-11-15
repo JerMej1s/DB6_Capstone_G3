@@ -3,24 +3,21 @@
 
   <h1>Create Event Here</h1>
 
+  <div class="InputLabel">
+    <label hidden for="idUser"></label>
+    <input hidden type="number" id="idUser" name="idUser" /><br />
 
+    <label for="eventName">Event Name:</label>
+    <input type="text" [(ngModel)]="eventnaming" /><br />
 
+    <label for="date">Date:</label>
+    <input type="datetime" [(ngModel)]="editDate" /><br />
 
-<div class="InputLabel">
-  <label hidden for="idUser"></label>
-  <input hidden type="number" id="idUser" name="idUser" /><br />
+    <label for="city">City:</label>
+    <input type="text" [(ngModel)]="editCity" /><br />
 
-  <label for="eventName">Event Name:</label>
-  <input type="text" [(ngModel)]="eventnaming" /><br />
+    <label for="state">State!!:</label>
+    <input type="text" [(ngModel)]="editState" /><br />
 
-  <label for="date">Date:</label>
-  <input type="datetime" [(ngModel)]="editDate" /><br />
-
-  <label for="city">City:</label>
-  <input type="text" [(ngModel)]="editCity" /><br />
-
-  <label for="state">State!!!:</label>
-  <input type="text" [(ngModel)]="editState" /><br />
-
-  <button (click)="saveEvent()">SaveEvent</button>
-</div>
+    <button (click)="saveButtonClicked()">SaveEvent</button>
+  </div>

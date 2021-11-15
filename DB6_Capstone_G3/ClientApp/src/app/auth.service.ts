@@ -9,11 +9,11 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  registerUser(user) {
+  public registerUser(user) {
     return this.http.post<any>(this._register, user)
   }
 
-  loginUser(user) {
+  public loginUser(user) {
     return this.http.post<any>(this._login, user)
   }
 }

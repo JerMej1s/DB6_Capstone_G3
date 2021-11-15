@@ -6,6 +6,7 @@ import { CocktailService } from './cocktail.service';
 import { Meal } from './Meal';
 import { MealService } from './meal.service';
 import { Event } from './event'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -16,20 +17,19 @@ export class AppComponent implements OnInit {
   ngOnInit(){
 
 }
-
   title = 'app';
   myCocktails?: Cocktail[] = null;
   allCocktails?: Cocktail = null;
   allMeals?: Meal = null;
-  
+  testevent: Event;
   myEvents?: Event[] = null;
-  theevent: Event;
  
   newEventId = ''; newEventName = ''; newCity = ''; newdate = null; newState = '';
 
   newUserId = ''; newUserFN = ''; newUserLN = ''; newUserPhone = ''; newUserEmail = ''; newUserPW = '';
 
-  constructor(private cocktailapi: CocktailService, private mealapi: MealService, private http: HttpClient) {
+  constructor(private cocktailapi: CocktailService, private mealapi: MealService, private http: HttpClient,
+    public router: Router) {
 
     cocktailapi.getDrink(
       result => {
@@ -42,15 +42,6 @@ export class AppComponent implements OnInit {
       result => {
         this.allMeals = result;
         console.log(this.allMeals);
-      }
-    )
-  }
-  saveEvent(theevent) {
-    console.log("inside event");
-    console.log(theevent);
-    this.http.post<Event>('event/save', theevent).subscribe(
-      (result) => {
-        this.getAllEvents();
       }
     )
   }

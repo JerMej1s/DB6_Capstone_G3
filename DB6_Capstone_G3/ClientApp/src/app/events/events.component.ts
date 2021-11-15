@@ -2,6 +2,8 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { AuthService } from '../auth.service';
+import { EventsaveService } from '../eventsave.service';
 import { Event } from '../event';
 
 
@@ -29,10 +31,10 @@ export class EventsComponent {
   editDate: DatePipe = null;
   editState: string = '';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private eventsave: EventsaveService) {
   }
 
-  saveEvent() {
+  saveButtonClicked() {
     console.log("Button clicked")
     this.theevent.eventName = this.eventnaming;
     this.theevent.city = this.editCity;
@@ -40,7 +42,10 @@ export class EventsComponent {
     this.theevent.date = this.editDate;
     console.log('Here is the event:');
     console.log(this.theevent);
-    this.newparentevent.emit(this.theevent);
+    console.log(this.eventsave);
+    //this.newparentevent.emit(this.theevent);
+    this.eventsave.saveEvent(this.theevent, () => { }
+    );
   }
 
 
