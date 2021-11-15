@@ -9,11 +9,20 @@ export class AuthService {
   constructor(private http: HttpClient) {
   }
 
-  public registerUser(user) {
-    return this.http.post<any>(this._register, user)
+  public registerUser(useremail, userpassword, cb) {
+    /*return this.http.post<any>(this._register, user)*/
+    return this.http.post<any>('event/save', useremail, userpassword).subscribe(
+      (result) => {
+        cb();
+      }
+    )
   }
 
-  public loginUser(user) {
-    return this.http.post<any>(this._login, user)
+  public loginUser(user, cb) {
+    return this.http.post<any>('User/home', user).subscribe(
+      (result) => {
+        cb();
+      }
+    )
   }
 }

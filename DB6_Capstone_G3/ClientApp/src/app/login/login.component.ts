@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -9,7 +9,12 @@ import { AuthService } from '../auth.service';
 /** Login component*/
 export class LoginComponent implements OnInit {
 
-  loginUserData = {}
+  loginUserData = {
+  }
+
+  editUserEmail: string = '';
+  editUserPW: string = '';
+
 
   constructor(private auth:AuthService) { }
 
@@ -17,10 +22,11 @@ export class LoginComponent implements OnInit {
   }
 
 
-  loginUser() {
-    this.auth.loginUser(this.loginUserData).subscribe(
-      resp => console.log(resp),
-      err => console.log(err)
+  userLoginClick() {
+    console.log("button clicked")
+    console.log(this.editUserEmail)
+    console.log(this.editUserPW)
+    this.auth.loginUser(this.editUserEmail, () => { }
     );
   }
 
