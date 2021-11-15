@@ -19,8 +19,7 @@ create table event (
     date DateTime,
     city varchar(85),
     state varchar(2),
-    primary key(idEvent),
-    foreign key eventUser(idUser) references user(idUser)
+    primary key(idEvent)
 );
 
 create table cocktail (
