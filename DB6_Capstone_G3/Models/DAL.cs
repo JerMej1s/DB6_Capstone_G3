@@ -104,28 +104,19 @@ namespace DB6_Capstone_G3.Models
 
         public static User ValidateUser(string email, string password)
         {
-            User user = new User()
-            {
-                firstName = null,
-                lastName = null,
-                phoneNumber = null,
-                email = null,
-                password = null
-            };
+            var parameters = new { email = email, password = password };
 
-            user = db.QuerySingle<User>($"select * from user where email = @email", email);
+            User user = db.QuerySingle<User>($"select * from user where email = @email", parameters);
 
             if (user is null)
             {
                 // send user back to login screen with incorrect email message
-                return null;
             }
             else if (password != user.password)
             {
                 // send user back to login screen with incorrect password message
-                return null;
             }
-            else return user;
+            return user;
         }
 
         public static Event SaveEvent(Event newEvent)
@@ -149,22 +140,22 @@ namespace DB6_Capstone_G3.Models
         public static IEnumerable<Event> GetEventsForUser(int idUser)
         {
             idUser = 1;
-            var pars = new {
-                theUser = idUser
-            };
-            IEnumerable<Event> result = db.Query<Event>("select * from event where idUser = @theUser", pars);
+            var parameters = new { idUser = idUser };
+            IEnumerable<Event> result = db.Query<Event>("select * from event where idUser = @idUser", parameters);
             return result;
         }
 
         public static IEnumerable<Cocktail> GetCocktailsForEvent(string idEvent)
         {
-            IEnumerable<Cocktail> result = db.Query<Cocktail>("select * from cocktail where idEvent = @idEvent", idEvent);
+            var parameters = new { idEvent = idEvent };
+            IEnumerable<Cocktail> result = db.Query<Cocktail>("select * from cocktail where idEvent = @idEvent", parameters);
             return result;
         }
 
         public static IEnumerable<Meals> GetMealsForEvent(string idEvent)
         {
-            IEnumerable<Meals> result = db.Query<Meals>("select * from meal where idEvent = @idEvent", idEvent);
+            var parameters = new { idEvent = idEvent };
+            IEnumerable<Meals> result = db.Query<Meals>("select * from meal where idEvent = @idEvent", parameters);
             return result;
         }
     }
