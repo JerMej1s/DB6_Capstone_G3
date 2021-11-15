@@ -16,6 +16,8 @@ import { MealService } from './meal.service';
 import { RegisterComponent } from './register/register.component';
 import { TestComponent } from './test/test.component';
 import { LogintestComponent } from './logintest/logintest.component';
+import { MealstestComponent } from './mealstest/mealstest.component';
+import { CocktailstestComponent } from './cocktailstest/cocktailstest.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { LogintestComponent } from './logintest/logintest.component';
     RegisterComponent,
     TestComponent,
     LogintestComponent,
+    MealstestComponent,
+    CocktailstestComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -43,6 +47,8 @@ import { LogintestComponent } from './logintest/logintest.component';
       { path: 'register', component: RegisterComponent },
       { path: 'test', component: TestComponent },
       { path: 'logintest', component: LogintestComponent },
+      { path: 'mealstest', component: MealstestComponent },
+      { path: 'cocktailstest', component: CocktailstestComponent },
     ])
   ],
   providers: [CocktailService, MealService],
