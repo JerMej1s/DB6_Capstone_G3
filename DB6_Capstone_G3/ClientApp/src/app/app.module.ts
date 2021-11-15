@@ -47,7 +47,7 @@ import { EventsaveService } from './eventsave.service';
       { path: 'logintest', component: LogintestComponent },
     ])
   ],
-  providers: [CocktailService, MealService, EventsaveService],
+  providers: [CocktailService, MealService, EventsaveService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
