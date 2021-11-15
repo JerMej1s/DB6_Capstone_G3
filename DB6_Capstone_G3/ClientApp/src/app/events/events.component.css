@@ -2,11 +2,8 @@
 #backgroundphoto {
   background: url("../../Pictures/BarEvent3.jpg") no-repeat;
   background-size: 100% 100%;
-  /*width: 100%;*/
   height: 800px;
-  /*position:center;*/
 }
-
 
 div {
   color: beige;
@@ -15,56 +12,17 @@ div {
   background: rgb(1 1 1 / 0.8);
   width: 50%;
   margin-left: 25%;
-  /*margin-right: 10%;*/
-  /*margin-top: 15%;*/
-  /*margin-bottom: 25%;*/
-  /*width: 50%;*/
-  margin-left: 25%;
 }
 
-input[type=text], input[type=submit], input[type=email], input[type=datetime], input[type=password], button, textarea {
+input[type=text], input[type=submit], input[type=datetime], button, textarea {
   width: 65%;
   padding: 1px;
   border: 1px solid red;
   border-radius: 4px;
   resize: both;
+  text-align:center
 }
 
   button[type=submit]:hover {
     background-color: lightgreen;
   }
-
-/*.InputLabel {
-  border-radius: 1px;
-  background-color: lightblue;
-  padding: 10px;
-  width: 50%;
-}
-
-  .InputLabel input, select {
-    margin-left: 8em;
-  }
-
-  .InputLabel label {
-    position: absolute;
-  }
-
-input[type=text], input[type=submit], input[type=email], input[type=datetime],  textarea {
-  width: 50%;
-  padding: 1px;
-  border: 1px solid red;
-  border-radius: 4px;
-  resize: both;
-}
-
-label {
-  padding: 1px 1px 1px 0;
-  display: inline-block;  
-}
-
-input[type=submit]:hover {
-  background-color: lightgreen;
-}*/
-
-
-
