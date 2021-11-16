@@ -4,6 +4,7 @@ import { EventsaveService } from '../eventsave.service';
 import { Event } from '../event';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -41,7 +42,7 @@ export class EventsComponent implements OnInit {
   editDate: DatePipe = null;
   editState: string = '';
 
-  constructor(private eventsave: EventsaveService, private auth: AuthService) {
+  constructor(private eventsave: EventsaveService, private auth: AuthService, private route: Router) {
   }
 
 
@@ -57,5 +58,6 @@ export class EventsComponent implements OnInit {
     console.log(this.eventsave);
     this.eventsave.saveEvent(this.theevent, () => { }
     );
+    this.route.navigate(['/eventconfirmation']);
   }
 }
