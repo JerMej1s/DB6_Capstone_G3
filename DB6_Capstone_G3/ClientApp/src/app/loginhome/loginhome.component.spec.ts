@@ -1,20 +1,21 @@
+﻿/// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
 import { TestBed, async, ComponentFixture, ComponentFixtureAutoDetect } from '@angular/core/testing';
 import { BrowserModule, By } from "@angular/platform-browser";
-import { EventconfirmationComponent } from './eventconfirmation.component';
+import { LoginhomeComponent } from './loginhome.component';
 
-let component: EventconfirmationComponent;
-let fixture: ComponentFixture<EventconfirmationComponent>;
+let component: LoginhomeComponent;
+let fixture: ComponentFixture<LoginhomeComponent>;
 
-describe('eventconfirmation component', () => {
+describe('loginhome component', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ EventconfirmationComponent ],
+            declarations: [ LoginhomeComponent ],
             imports: [ BrowserModule ],
             providers: [
                 { provide: ComponentFixtureAutoDetect, useValue: true }
             ]
         });
-        fixture = TestBed.createComponent(EventconfirmationComponent);
+        fixture = TestBed.createComponent(LoginhomeComponent);
         component = fixture.componentInstance;
     }));
 
