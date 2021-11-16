@@ -102,21 +102,23 @@ namespace DB6_Capstone_G3.Models
             return user;
         }
 
-        public static User ValidateUser(string email, string password)
+        public static int ValidateUser(UserLogin user)
         {
-            var parameters = new { email = email, password = password };
 
-            User user = db.QuerySingle<User>($"select * from user where email = @email", parameters);
+            var parameters = new { email = user.email, password = user.password};
+            //var parameters = new { user.email = email, user.password = password };
 
+            int idUser = db.QuerySingle<int>($"select idUser from user where email = @email", parameters);
+            string password = db.QuerySingle<string>($"select password from user where email = @email", parameters);
             if (user is null)
             {
                 // send user back to login screen with incorrect email message
             }
-            else if (password != user.password)
+            else if (user.password != password)
             {
                 // send user back to login screen with incorrect password message
             }
-            return user;
+            return idUser;
         }
 
         public static Event SaveEvent(Event newEvent)
@@ -139,7 +141,6 @@ namespace DB6_Capstone_G3.Models
 
         public static IEnumerable<Event> GetEventsForUser(int idUser)
         {
-            idUser = 1;
             var parameters = new { idUser = idUser };
             IEnumerable<Event> result = db.Query<Event>("select * from event where idUser = @idUser", parameters);
             return result;

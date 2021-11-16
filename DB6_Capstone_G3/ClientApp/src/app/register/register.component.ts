@@ -13,7 +13,7 @@ import { User } from '../user';
 
 export class RegisterComponent {
 
-  constructor(private registeruser: RegisterUserService, auth: AuthService) {
+  constructor(private registeruser: RegisterUserService, private auth: AuthService) {
   }
   @Input() theuser: User =
     {
@@ -40,7 +40,7 @@ export class RegisterComponent {
     this.theuser.phoneNumber = this.editPN;
     this.theuser.email = this.editEmail;
     this.theuser.password = this.editPass;
-    this.registeruser.saveUser(this.theuser, () => { });
+    this.auth.registerUser(this.theuser, () => { });
   }
 
 }

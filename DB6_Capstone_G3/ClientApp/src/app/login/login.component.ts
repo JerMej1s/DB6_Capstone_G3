@@ -1,5 +1,8 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
+import { UserLogin } from '../userlogin';
 
 @Component({
   selector: 'app-login',
@@ -8,25 +11,37 @@ import { AuthService } from '../auth.service';
 })
 /** Login component*/
 export class LoginComponent implements OnInit {
+  public currentIdUser?: Observable<number>
+  idUser: number = -1;
+  @Input() loginuser: UserLogin =
+    {
+      email: null,
+      password: null,
+    }
 
-  loginUserData = {
-  }
+ 
 
   editUserEmail: string = '';
   editUserPW: string = '';
 
 
-  constructor(private auth:AuthService) { }
+  constructor(private auth: AuthService, private route: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    this.currentIdUser = this.auth.getCurrentUserId();
+
+    this.currentIdUser.subscribe((idUser: number) => {
+      console.log(`Logging from Nav Bar Component: ${idUser}`);
+      this.idUser = this.idUser;
+    })
   }
 
 
-  userLoginClick() {
+  userLoginClick(): void {
     console.log("button clicked")
-    console.log(this.editUserEmail)
-    console.log(this.editUserPW)
-    this.auth.loginUser(this.editUserEmail, () => { }
+    this.loginuser.email = this.editUserEmail;
+    this.loginuser.password = this.editUserPW;
+    this.auth.loginUser(this.loginuser, () => { }
     );
   }
 

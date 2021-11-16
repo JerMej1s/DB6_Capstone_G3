@@ -1,17 +1,31 @@
 import { DatePipe } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { EventsaveService } from '../eventsave.service';
 import { Event } from '../event';
+import { AuthService } from '../auth.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
-    selector: 'app-events',
-    templateUrl: './events.component.html',
+  selector: 'app-events',
+  templateUrl: './events.component.html',
   styleUrls: ['./events.component.css']
 
 })
 /** events component*/
-export class EventsComponent {
+export class EventsComponent implements OnInit {
+  public currentIdUser?: Observable<number>
+  idUser: number = -1;
+
+  ngOnInit(): void {
+    this.currentIdUser = this.auth.getCurrentUserId();
+
+    this.currentIdUser.subscribe((idUser: number) => {
+      console.log(`Logging from Nav Bar Component: ${idUser}`);
+      this.idUser = this.idUser;
+    })
+}
+
   @Input() theevent: Event =
     {
       idEvent: 0,
@@ -27,8 +41,10 @@ export class EventsComponent {
   editDate: DatePipe = null;
   editState: string = '';
 
-  constructor(private eventsave: EventsaveService) {
+  constructor(private eventsave: EventsaveService, private auth: AuthService) {
   }
+
+
 
   saveButtonClicked() {
     console.log("Button clicked")
@@ -42,6 +58,4 @@ export class EventsComponent {
     this.eventsave.saveEvent(this.theevent, () => { }
     );
   }
-
-
 }
