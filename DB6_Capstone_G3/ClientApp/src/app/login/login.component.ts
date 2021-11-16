@@ -31,8 +31,7 @@ export class LoginComponent implements OnInit {
     this.currentIdUser = this.auth.getCurrentUserId();
 
     this.currentIdUser.subscribe((idUser: number) => {
-      console.log(`Logging from Nav Bar Component: ${idUser}`);
-      this.idUser = this.idUser;
+      this.idUser = idUser;
     })
   }
 
