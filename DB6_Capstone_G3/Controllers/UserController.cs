@@ -11,7 +11,7 @@ namespace DB6_Capstone_G3.Controllers
     public class UserController : Controller
     {
         [HttpPost("save")]
-        public User SaveUser(User newUser)
+        public User SaveUser([FromBody] User newUser)
         {
             return DAL.SaveUser(newUser);
         }

@@ -14,7 +14,7 @@ import { Event } from '../event';
 export class EventsComponent {
   @Input() theevent: Event =
     {
-      idEvent: 1,
+      idEvent: 0,
       idUser: 1,
       eventName: null,
       date: null,
