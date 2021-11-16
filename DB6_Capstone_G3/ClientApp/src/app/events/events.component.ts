@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { EventsaveService } from '../eventsave.service';
 import { Event } from '../event';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class EventsComponent {
   editDate: DatePipe = null;
   editState: string = '';
 
-  constructor(private eventsave: EventsaveService) {
+  constructor(private eventsave: EventsaveService, private route: Router) {
   }
 
   saveButtonClicked() {
@@ -41,6 +42,7 @@ export class EventsComponent {
     console.log(this.eventsave);
     this.eventsave.saveEvent(this.theevent, () => { }
     );
+    this.route.navigate(['/eventconfirmation']);
   }
 
 
