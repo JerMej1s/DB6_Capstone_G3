@@ -23,6 +23,6 @@ input[type=text], input[type=submit], input[type=datetime], button, textarea {
   text-align:center
 }
 
-  button[type=submit]:hover {
+  input[type=submit]:hover {
     background-color: lightgreen;
   }

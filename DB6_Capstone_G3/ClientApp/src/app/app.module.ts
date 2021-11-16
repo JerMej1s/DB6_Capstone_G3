@@ -20,6 +20,7 @@ import { CocktailstestComponent } from './cocktailstest/cocktailstest.component'
 import { AuthService } from './auth.service';
 import { EventsaveService } from './eventsave.service';
 import { RegisterUserService } from './registeruser.service';
+import { EventconfirmationComponent } from './eventconfirmation/eventconfirmation.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { RegisterUserService } from './registeruser.service';
     LogintestComponent,
     MealstestComponent,
     CocktailstestComponent,
+    EventconfirmationComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -52,6 +54,7 @@ import { RegisterUserService } from './registeruser.service';
       { path: 'logintest', component: LogintestComponent },
       { path: 'mealstest', component: MealstestComponent },
       { path: 'cocktailstest', component: CocktailstestComponent },
+      { path: 'eventconfirmation', component: EventconfirmationComponent },
     ])
   ],
   providers: [CocktailService, MealService, EventsaveService, AuthService, RegisterUserService],
