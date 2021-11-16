@@ -21,6 +21,7 @@ import { AuthService } from './auth.service';
 import { EventsaveService } from './eventsave.service';
 import { RegisterUserService } from './registeruser.service';
 import { EventconfirmationComponent } from './eventconfirmation/eventconfirmation.component';
+import { RegisteredconfirmationComponent } from './registeredconfirmation/registeredconfirmation.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { EventconfirmationComponent } from './eventconfirmation/eventconfirmatio
     MealstestComponent,
     CocktailstestComponent,
     EventconfirmationComponent,
+    RegisteredconfirmationComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -55,6 +57,7 @@ import { EventconfirmationComponent } from './eventconfirmation/eventconfirmatio
       { path: 'mealstest', component: MealstestComponent },
       { path: 'cocktailstest', component: CocktailstestComponent },
       { path: 'eventconfirmation', component: EventconfirmationComponent },
+      { path: 'registeredconfirmation', component: RegisteredconfirmationComponent },
     ])
   ],
   providers: [CocktailService, MealService, EventsaveService, AuthService, RegisterUserService],
