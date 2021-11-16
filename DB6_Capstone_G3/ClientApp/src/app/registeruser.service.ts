@@ -8,13 +8,13 @@ export class RegisterUserService {
   constructor(private http: HttpClient) {
   }
 
-  public saveUser(theuser, cb) {
+  public saveUser(theuser: User, cb: any) {
     console.log("inside event");
-    console.log(theuser);
-    this.http.post<any>('user/save', theuser).subscribe(
-      (result) => {
-        console.log(result);
-        cb();
+    console.log(`theuser: ${theuser.firstName}`);
+    this.http.post<User>('user/save', theuser).subscribe(
+      result => {
+        console.log(`result: ${result.firstName}`);
+        cb(result);
       }
     );
   }

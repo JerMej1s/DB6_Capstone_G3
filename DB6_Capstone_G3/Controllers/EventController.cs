@@ -13,7 +13,7 @@ namespace DB6_Capstone_G3.Controllers
     public class EventController : Controller
     {
         [HttpPost("save")]
-        public Event SaveEvent(Event newEvent)
+        public Event SaveEvent([FromBody] Event newEvent)
         {
             newEvent.idUser = 1;
             return DAL.SaveEvent(newEvent);

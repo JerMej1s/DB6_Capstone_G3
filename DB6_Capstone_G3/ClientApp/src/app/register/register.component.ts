@@ -25,7 +25,7 @@ export class RegisterComponent {
       password: null,
     }
 
-  editidUser: number = null;
+  editID: number;
   editFN: string = '';
   editLN: string = '';
   editPN: string = '';
@@ -34,7 +34,7 @@ export class RegisterComponent {
 
   saveUserButton() {
     console.log("Clicked button")
-    this.theuser.idUser = this.editidUser;
+    this.theuser.idUser = this.editID;
     this.theuser.firstName = this.editFN;
     this.theuser.lastName = this.editLN;
     this.theuser.phoneNumber = this.editPN;
