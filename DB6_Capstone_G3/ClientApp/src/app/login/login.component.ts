@@ -37,12 +37,13 @@ export class LoginComponent implements OnInit {
   }
 
 
-  userLoginClick(): void {
+  userLoginClick() {
     console.log("button clicked")
     this.loginuser.email = this.editUserEmail;
     this.loginuser.password = this.editUserPW;
     this.auth.loginUser(this.loginuser, () => { }
     );
+    this.route.navigate(['/loginconfirmation']);
   }
 
 }
