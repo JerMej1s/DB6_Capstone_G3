@@ -15,10 +15,9 @@
       <input type="email" [(ngModel)]="editUserEmail" name="email" placeholder="Email" /><br />
 
       <label for="Password">Password</label><br />
-      <input type="password" [(ngModel)]="editUserPassword" name="password" placeholder="Password" /><br /><br />
+      <input type="password" [(ngModel)]="editUserPW" name="password" placeholder="Password" /><br /><br />
 
-      <button (click)="userLoginClick" type="submit">Login</button><br /><br />
-
+      <button (click)="userLoginClick()" type="submit">Login</button><br /><br />
       <p>
         Not a member?
         <br />
