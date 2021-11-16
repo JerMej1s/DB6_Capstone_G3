@@ -33,7 +33,6 @@ export class AuthService {
     return this.http.post<any>('user/home', loginuser).subscribe(
       (result) => {
         this.currentIdUser = result;
-        console.log(this.currentIdUser)
           cb(result);
       }
     )

@@ -21,6 +21,7 @@ import { AuthService } from './auth.service';
 import { EventsaveService } from './eventsave.service';
 import { RegisterUserService } from './registeruser.service';
 import { EventconfirmationComponent } from './eventconfirmation/eventconfirmation.component';
+import { LoginhomeComponent } from './loginhome/loginhome.component';
 import { RegisteredconfirmationComponent } from './registeredconfirmation/registeredconfirmation.component';
 
 
@@ -39,6 +40,7 @@ import { RegisteredconfirmationComponent } from './registeredconfirmation/regist
     MealstestComponent,
     CocktailstestComponent,
     EventconfirmationComponent,
+    LoginhomeComponent,
     RegisteredconfirmationComponent,
   ],
   imports: [
@@ -57,6 +59,7 @@ import { RegisteredconfirmationComponent } from './registeredconfirmation/regist
       { path: 'mealstest', component: MealstestComponent },
       { path: 'cocktailstest', component: CocktailstestComponent },
       { path: 'eventconfirmation', component: EventconfirmationComponent },
+      { path: 'loginconfirmation', component: LoginhomeComponent },
       { path: 'registeredconfirmation', component: RegisteredconfirmationComponent },
     ])
   ],
