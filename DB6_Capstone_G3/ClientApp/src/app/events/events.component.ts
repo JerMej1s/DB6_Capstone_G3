@@ -5,6 +5,8 @@ import { Event } from '../event';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { GetUserEveService } from '../get-user-eve.service';
+
 
 
 @Component({
@@ -17,13 +19,19 @@ import { Router } from '@angular/router';
 export class EventsComponent implements OnInit {
   public currentIdUser?: Observable<number>
   idUser: number = -1;
+  idEvent: number = 0;
+  userEvents?: Event[];
+  usereve?: Event;
 
   ngOnInit(): void {
     this.currentIdUser = this.auth.getCurrentUserId();
 
     this.currentIdUser.subscribe((idUser: number) => {
-      console.log(`Logging from Nav Bar Component: ${idUser}`);
-      this.idUser = this.idUser;
+      console.log(`Logging from Nav Bar Component in events: ${idUser}`);
+      this.idUser = idUser;
+      if (idUser > -1) {
+        this.getUserEvents()
+      }
     })
 }
 
@@ -42,10 +50,23 @@ export class EventsComponent implements OnInit {
   editDate: DatePipe = null;
   editState: string = '';
 
-  constructor(private eventsave: EventsaveService, private auth: AuthService, private route: Router) {
+  constructor(private eventsave: EventsaveService, private auth: AuthService, private route: Router, private userevents: GetUserEveService) {
   }
 
-
+  getUserEvents() {
+    console.log("getusereventsrun")
+    this.userevents.getUserEvents(this.idUser,
+      result => {
+        this.userEvents = result;
+        console.log(this.userEvents);
+      }
+    ) 
+  }
+  passUserEvent() {
+    console.log("eventococktailclicked")
+    this.userevents.setIdEvent(this.idEvent);
+    this.route.navigate(['/cocktails'])
+  }
 
   saveButtonClicked() {
     console.log("Button clicked")

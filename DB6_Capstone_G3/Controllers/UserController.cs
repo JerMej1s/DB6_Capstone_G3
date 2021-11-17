@@ -22,8 +22,8 @@ namespace DB6_Capstone_G3.Controllers
             return DAL.ValidateUser(loginuser);
         }
 
-        [HttpGet("events")]
-        public IEnumerable<Event> GetEvents(int idUser)
+        [HttpGet("events/{idUser}")]
+        public IEnumerable<Event> GetEvents([FromRoute] int idUser)
         {
             return DAL.GetEventsForUser(idUser);
         }
