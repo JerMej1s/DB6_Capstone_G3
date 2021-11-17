@@ -1,4 +1,6 @@
-﻿import { Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 @Component({
     selector: 'app-loginhome',
@@ -7,8 +9,20 @@
 })
 /** loginhome component*/
 export class LoginhomeComponent {
-    /** loginhome ctor */
-    constructor() {
+  public currentIdUser?: Observable<number>
+  idUser: number = -1;
 
-    }
+    constructor(private auth: AuthService) {
+  }
+
+  ngOnInit(): void {
+    this.currentIdUser = this.auth.getCurrentUserId();
+
+    this.currentIdUser.subscribe((idUser: number) => {
+      this.idUser = idUser;
+    })
+
+    console.log(`${this.idUser}`);
+  }
+
 }
