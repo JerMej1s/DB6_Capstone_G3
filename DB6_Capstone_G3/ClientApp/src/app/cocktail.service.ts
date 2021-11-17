@@ -42,7 +42,7 @@ export class CocktailService {
         console.log(newCocktail);
         cb(result);
       }
-    )
+    );
   }
 
   getDrinkById(idDrink, cb) {

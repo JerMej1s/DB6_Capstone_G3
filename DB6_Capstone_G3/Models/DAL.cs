@@ -101,6 +101,13 @@ namespace DB6_Capstone_G3.Models
             return response;
         }
 
+        public async static Task<Meal> GetMealDetails(int idMeal)
+        {
+            var connection = await GetHttpMealClient().GetAsync($"api/json/v1/1/lookup.php?i={idMeal}");
+            Meal response = await connection.Content.ReadAsAsync<Meal>();
+            return response;
+        }
+
         // DAL for database
         public static MySqlConnection db;
         public static User SaveUser(User user)

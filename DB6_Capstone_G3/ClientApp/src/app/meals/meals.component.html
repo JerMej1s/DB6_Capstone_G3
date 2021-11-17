@@ -1,2 +1,28 @@
-<h1>Here are the Meals</h1>
-<div style="border: 1px solid red">meals Component</div>
+<h1>Find meals for your event</h1>
+
+<div>
+  Search for a meal by name:
+  <input type="text" [(ngModel)]="userSearchName" />
+  <button (click)="nameSearchClick()">Search</button><br />
+
+  Search for a meal by ingredient:
+  <input type="text" [(ngModel)]="userSearchIngredient" />
+  <button (click)="ingredientSearchClick()">Search</button><br />
+
+  Get a random meal:
+  <button (click)="getRandomMealClick()">Get a random meal</button>
+</div>
+
+<ng-container *ngIf="meals">
+
+  <ng-container *ngFor="let meal of meals.meals">
+
+
+    <img src="{{ meal.strMealThumb }}" />
+    {{ meal.strMeal }}
+    {{ meal.idMeal }}<br />
+    <button (click)="addToEventClick()">Add to event</button>
+
+  </ng-container>
+
+</ng-container>

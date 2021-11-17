@@ -68,7 +68,7 @@ export class CocktailsComponent implements OnInit {
     );
   }
 
-  addEventClick() {
+  addToEventClick() {
     console.log('Inside addEventClick()');
     this.cocktail = this.cocktail;
     this.cocktailapi.saveDrinkToEvent(this.cocktail,
