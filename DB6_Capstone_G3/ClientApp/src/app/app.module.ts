@@ -23,6 +23,7 @@ import { RegisterUserService } from './registeruser.service';
 import { EventconfirmationComponent } from './eventconfirmation/eventconfirmation.component';
 import { LoginhomeComponent } from './loginhome/loginhome.component';
 import { RegisteredconfirmationComponent } from './registeredconfirmation/registeredconfirmation.component';
+import { GetUserEveService } from './get-user-eve.service';
 
 
 @NgModule({
@@ -63,7 +64,7 @@ import { RegisteredconfirmationComponent } from './registeredconfirmation/regist
       { path: 'registeredconfirmation', component: RegisteredconfirmationComponent },
     ])
   ],
-  providers: [CocktailService, MealService, EventsaveService, AuthService, RegisterUserService],
+  providers: [CocktailService, MealService, EventsaveService, AuthService, RegisterUserService, RegisterUserService, GetUserEveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
