@@ -20,7 +20,7 @@ namespace DB6_Capstone_G3.Controllers
         }
 
         [HttpGet("home")]
-        public IEnumerable<Event> GetEvents(int idUser)
+        public IEnumerable<Event> GetEvents([FromBody] int idUser)
         {
             return DAL.GetEventsForUser(idUser);
         }

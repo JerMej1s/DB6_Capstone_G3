@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
     this.loginuser.password = this.editUserPW;
     this.auth.loginUser(this.loginuser, () => { }
     );
-    this.route.navigate(['/loginconfirmation']);
+    this.route.navigate(['/events']);
   }
 
 }

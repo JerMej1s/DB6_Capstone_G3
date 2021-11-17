@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { Cocktail } from '../Cocktail';
 import { CocktailService } from '../cocktail.service';
-import { RegisterUserService } from '../registeruser.service';
 
 @Component({
     selector: 'app-cocktails',
