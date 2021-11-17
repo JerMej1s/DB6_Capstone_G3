@@ -7,9 +7,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
 @Injectable()
 export class AuthService {
   private currentIdUser: BehaviorSubject<number> = new BehaviorSubject(-1);
-  //private _register = "/register";
-  //private _login = "/login";
-  constructor(private http: HttpClient, private http2: HttpClient) {
+
+  newresult: number = null;
+  constructor(private http: HttpClient) {
   }
 
   public getCurrentUserId(): Observable<number> {
@@ -31,9 +31,10 @@ export class AuthService {
     console.log("inside event");
     console.log(loginuser);
     return this.http.post<any>('user/home', loginuser).subscribe(
-      (result) => {
-        this.currentIdUser = result;
-          cb(result);
+      (result: any) => {
+        this.setIdUser(result);
+        this.newresult = result;
+        cb(result);
       }
     )
   }
