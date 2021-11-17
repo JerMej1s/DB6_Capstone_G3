@@ -1,28 +1,30 @@
-<h1>Find cocktails for your event</h1>
+<header id="backgroundphoto">
 
-<div>
-  Search for a cocktail by name:
-  <input type="text" [(ngModel)]="userSearchName" />
-  <button (click)="nameSearchClick()">Search</button><br />
+      <div class="text-center border border-light p-5">
+          <p class="h4 mb-4">Find cocktails for your event</p>
+          Search for a cocktail by name:
+          <input type="text" [(ngModel)]="userSearchName" />
+          <button (click)="nameSearchClick()">Search</button><br /><br />
 
-  Search for a cocktail by ingredient:
-  <input type="text" [(ngModel)]="userSearchIngredient" />
-  <button (click)="ingredientSearchClick()">Search</button><br />
+          Search for a cocktail by ingredient:
+          <input type="text" [(ngModel)]="userSearchIngredient" />
+          <button (click)="ingredientSearchClick()">Search</button><br /><br />
 
-  Get a random drink:
-  <button (click)="getRandomDrinkClick()">Get a random drink</button>
-</div>
-
-<ng-container *ngIf="cocktails">
-
-  <ng-container *ngFor="let cocktail of cocktails.drinks">
+          <button (click)="getRandomDrinkClick()">Get a random drink</button>
+      </div>
 
 
-    <img src="{{ cocktail.strDrinkThumb }}" />
-    {{ cocktail.strDrink }}
-    {{ cocktail.idDrink }}<br />
-    <button (click)="addToEventClick()" >Add to event</button>
+      <ng-container *ngIf="cocktails">
 
-  </ng-container>
+          <div *ngFor="let cocktail of cocktails.drinks" class="text-center border border-light p-5">
 
-</ng-container>
+            <p class="h4 mb-4">{{ cocktail.strDrink }}</p>
+            <img src="{{ cocktail.strDrinkThumb }}" /><br />
+
+            <!--{{ cocktail.idDrink }}-->
+            <button (click)="addToEventClick()">Add to event</button>
+
+          </div>
+
+      </ng-container>
+</header>
