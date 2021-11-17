@@ -20,9 +20,9 @@
 
             <p class="h4 mb-4">{{ cocktail.strDrink }}</p>
             <img src="{{ cocktail.strDrinkThumb }}" /><br />
-
-            <!--{{ cocktail.idDrink }}-->
-            <button (click)="addToEventClick()">Add to event</button>
+    {{ cocktail.strDrink }}
+    {{ cocktail.idDrink }}<br />
+    <button (click)="addToEventClick(cocktail.idDrink)" >Add to event</button>
 
           </div>
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { Cocktail } from '../Cocktail';
 import { CocktailService } from '../cocktail.service';
+import { GetUserEveService } from '../get-user-eve.service';
 
 @Component({
     selector: 'app-cocktails',
@@ -22,7 +23,7 @@ export class CocktailsComponent implements OnInit {
   cocktail?: Cocktail;
   idDrink?: number;
 
-  constructor(private cocktailapi: CocktailService, private auth: AuthService, private route: Router) {}
+  constructor(private cocktailapi: CocktailService, private auth: AuthService, private route: Router, private geteventid: GetUserEveService) { }
 
   ngOnInit(): void {
     this.currentIdUser = this.auth.getCurrentUserId();
@@ -67,9 +68,10 @@ export class CocktailsComponent implements OnInit {
     );
   }
 
-  addToEventClick() {
+  addToEventClick(idDrink) {
     console.log('Inside addEventClick()');
-    this.cocktail = this.cocktail;
+    this.cocktail = idDrink;
+    console.log(this.cocktail);
     this.cocktailapi.saveDrinkToEvent(this.cocktail,
       result => {
         console.log(result);

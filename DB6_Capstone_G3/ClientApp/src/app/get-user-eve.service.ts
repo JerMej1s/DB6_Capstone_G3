@@ -27,9 +27,9 @@ export class GetUserEveService {
   }
 
   setIdEvent(newId: number) {
-    console.log(`UserId before login: ${this.currentIdEvent.value}`)
+    console.log(`EventId before passing: ${this.currentIdEvent.value}`)
     this.currentIdEvent.next(newId);
-    console.log(`UserId after login: ${this.currentIdEvent.value}`)
+    console.log(`EventId after passing: ${this.currentIdEvent.value}`)
   }
 
 }

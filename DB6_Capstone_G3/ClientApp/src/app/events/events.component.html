@@ -6,10 +6,11 @@
   <div *ngIf="this.idUser > 0; then loggedIn; else loggedOut" class="text-center border border-light p-5">
   </div>
     <ng-template #loggedIn>
-      <div *ngFor="let event of userEvents">
-        {{event.eventName}}
-        <button (click)="passUserEventToCocktail()" [(ngModel)]="idEvent"></button>
-        <button (click)="passUserEventToMeal()" [(ngModel)]="idEvent"></button>
+      <div *ngFor="let event of userEvents;">
+        {{event.eventName}} {{event.idEvent}}
+
+        <button (click)="passUserEventToCocktail(event.idEvent)">Add Cocktail</button>
+        <button (click)="passUserEventToCocktail(event.idEvent)">Add Meal</button>
       </div>
     </ng-template>
 
