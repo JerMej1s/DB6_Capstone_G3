@@ -34,20 +34,20 @@ export class AppComponent implements OnInit {
   constructor(private cocktailapi: CocktailService, private mealapi: MealService, private http: HttpClient,
     public router: Router) {
 
-    cocktailapi.getDrink(
-      result => {
-        this.allCocktails = result;
-        console.log(this.allCocktails);
-      }
-    )
+  //  cocktailapi.getDrink(
+  //    result => {
+  //      this.allCocktails = result;
+  //      console.log(this.allCocktails);
+  //    }
+  //  )
 
-    mealapi.getMeal(
-      result => {
-        this.allMeals = result;
-        console.log(this.allMeals);
-      }
-    )
-  }
+  //  mealapi.getMeal(
+  //    result => {
+  //      this.allMeals = result;
+  //      console.log(this.allMeals);
+  //    }
+  //  )
+  //}
 
   //getAllEvents() {
   //  let newevent = {
@@ -62,19 +62,19 @@ export class AppComponent implements OnInit {
   //}
 
 
-  getMeal() {
-    this.mealapi.getMeal(
-      result => {
-        console.log(result);
-      }
-    )
-  }
+  //getMeal() {
+  //  this.mealapi.getMeal(
+  //    result => {
+  //      console.log(result);
+  //    }
+  //  )
+  //}
 
-  getDrink() {
-    this.cocktailapi.getDrink(
-      result => {
-        console.log(result);
-      }
-    )
+  //getDrink() {
+  //  this.cocktailapi.getDrink(
+  //    result => {
+  //      console.log(result);
+  //    }
+  //  )
   }
 }
