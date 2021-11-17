@@ -1,10 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from './user';
 
 
 @Injectable()
 export class RegisterUserService {
+
   constructor(private http: HttpClient) {
   }
 
@@ -17,5 +19,5 @@ export class RegisterUserService {
         cb(result);
       }
     );
-  }
+  }  
 }

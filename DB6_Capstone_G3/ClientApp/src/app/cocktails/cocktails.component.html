@@ -1,2 +1,28 @@
-<h1>Here's our Cocktail menu</h1>
-<div style="border: 1px solid red">cocktails Component</div>
+<h1>Find cocktails for your event</h1>
+
+<div>
+  Search for a cocktail by name:
+  <input type="text" [(ngModel)]="userSearchName" />
+  <button (click)="nameSearchClick()">Search</button><br />
+
+  Search for a cocktail by ingredient:
+  <input type="text" [(ngModel)]="userSearchIngredient" />
+  <button (click)="ingredientSearchClick()">Search</button><br />
+
+  Get a random drink:
+  <button (click)="getRandomDrinkClick()">Get a random drink</button>
+</div>
+
+<ng-container *ngIf="cocktails">
+
+  <ng-container *ngFor="let cocktail of cocktails.drinks">
+
+
+    <img src="{{ cocktail.strDrinkThumb }}" />
+    {{ cocktail.strDrink }}
+    {{ cocktail.idDrink }}<br />
+    <button (click)="addEventClick()" >Add to event</button>
+
+  </ng-container>
+
+</ng-container>
