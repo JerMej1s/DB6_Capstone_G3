@@ -1,2 +1,34 @@
-﻿body {
+#backgroundphoto {
+  background: url("../../Pictures/cocktails3.jpg") no-repeat;
+  background-size: 100% 100%;
+  height: 800px;
+}
+
+div {
+  color: beige;
+  font-size: 15px;
+  padding: 10px;
+  background: rgb(1 1 1 / 0.8);
+  width: 50%;
+  margin-left: 25%;
+}
+
+input[type=text], input[type=submit], input[type=datetime], button, textarea {
+  width: 65%;
+  padding: 1px;
+  border: 1px solid red;
+  border-radius: 4px;
+  resize: both;
+  text-align: center
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 275px;
+}
+
+button:hover {
+  background-color: lightgreen;
 }
