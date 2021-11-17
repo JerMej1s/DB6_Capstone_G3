@@ -71,16 +71,16 @@ export class MealsComponent implements OnInit {
     );
   }
 
-  goToDetails() {
+  goToDetails(idMeal) {
     console.log('Inside goToDetails()');
-    this.idMeal = this.idMeal;
+    this.idMeal = idMeal;
     this.mealapi.setIdMeal(this.idMeal);
     this.route.navigate(['/meal']);
   }
 
-  addToEventClick() {
+  addToEventClick(idMeal) {
     console.log('Inside addEventClick()');
-    this.meal = this.meal;
+    this.meal = idMeal;
     this.mealapi.saveMealToEvent(this.meal,
       result => {
         console.log(result);

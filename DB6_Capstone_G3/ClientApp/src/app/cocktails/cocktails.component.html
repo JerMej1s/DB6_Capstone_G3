@@ -21,7 +21,7 @@
     <img src="{{ cocktail.strDrinkThumb }}" />
     {{ cocktail.strDrink }}
     {{ cocktail.idDrink }}<br />
-    <button (click)="addToEventClick()" >Add to event</button>
+    <button (click)="addToEventClick(cocktail.idDrink)" >Add to event</button>
 
   </ng-container>
 
