@@ -62,10 +62,15 @@ export class EventsComponent implements OnInit {
       }
     ) 
   }
-  passUserEvent() {
-    console.log("eventococktailclicked")
+  passUserEventToCocktail() {
+    console.log("event to cocktail clicked")
     this.userevents.setIdEvent(this.idEvent);
     this.route.navigate(['/cocktails'])
+  }
+  passUserEventToMeal() {
+    console.log("event to meal clicked")
+    this.userevents.setIdEvent(this.idEvent);
+    this.route.navigate(['/meals'])
   }
 
   saveButtonClicked() {
