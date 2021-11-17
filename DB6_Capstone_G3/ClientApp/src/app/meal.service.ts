@@ -1,10 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Meal } from './Meal';
 
 @Injectable()
 export class MealService {
 
+  private currentIdMeal: BehaviorSubject<number> = new BehaviorSubject(-1);
+
+  public getCurrentIdMeal(): Observable<number> {
+    return this.currentIdMeal;
+  }
 
   constructor(private http: HttpClient) {
 
@@ -45,13 +51,19 @@ export class MealService {
     );
   }
 
-  getDrinkById(idMeal, cb) {
+  getMealById(idMeal, cb) {
     console.log(idMeal);
-    this.http.get<Meal>(`api/meals/details`, idMeal).subscribe(
+    this.http.get<Meal>('api/meals/details', idMeal).subscribe(
       result => {
         console.log(idMeal);
         cb(result);
       }
     );
+  }
+
+  setIdMeal(newId: number) {
+    console.log(`idMeal before set: ${this.currentIdMeal.value}`);
+    this.currentIdMeal.next(newId);
+    console.log(`idMeal after set: ${this.currentIdMeal.value}`);
   }
 }

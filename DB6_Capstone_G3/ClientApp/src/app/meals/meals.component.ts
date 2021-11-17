@@ -14,8 +14,11 @@ import { MealService } from '../meal.service';
 export class MealsComponent implements OnInit {
 
   public currentIdUser?: Observable<number>;
+  public currentIdMeal?: Observable<number>;
 
   idUser: number = -1;
+  idMeal?: number;
+
   userSearchName?: string;
   userSearchIngredient?: string;
   meals?: Meal[];
@@ -29,8 +32,10 @@ export class MealsComponent implements OnInit {
       this.currentIdUser.subscribe((idUser: number) => {
         console.log(`Logging from cocktails component: ${idUser}`);
         this.idUser = this.idUser;
-      }
+        }
       );
+
+      
     }
 
   getRandomMealClick() {
@@ -55,7 +60,7 @@ export class MealsComponent implements OnInit {
   }
 
   ingredientSearchClick() {
-    console.log('Inside ingredientSearchClick()')
+    console.log('Inside ingredientSearchClick()');
     this.userSearchIngredient = this.userSearchIngredient;
     console.log(this.userSearchIngredient);
     this.mealapi.searchDrinksByIngredient(this.userSearchIngredient,
@@ -64,6 +69,13 @@ export class MealsComponent implements OnInit {
         this.meals = result;
       }
     );
+  }
+
+  goToDetails() {
+    console.log('Inside goToDetails()');
+    this.idMeal = this.idMeal;
+    this.mealapi.setIdMeal(this.idMeal);
+    this.route.navigate(['/meal']);
   }
 
   addToEventClick() {
