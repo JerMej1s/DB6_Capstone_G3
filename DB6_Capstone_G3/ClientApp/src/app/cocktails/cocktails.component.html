@@ -1,30 +1,128 @@
-<header id="backgroundphoto">
+<body id="backgroundphoto">
 
-      <div class="text-center border border-light p-5">
-          <p class="h4 mb-4">Find cocktails for your event</p>
-          Search for a cocktail by name:
-          <input type="text" [(ngModel)]="userSearchName" />
-          <button (click)="nameSearchClick()">Search</button><br /><br />
+  <div class="text-center border border-light p-5">
+    <p class="h4 mb-4">Find cocktails for your event</p>
+    Search for a cocktail by name:
+    <input type="text" [(ngModel)]="userSearchName" />
+    <button (click)="nameSearchClick()">Search</button><br /><br />
 
-          Search for a cocktail by ingredient:
-          <input type="text" [(ngModel)]="userSearchIngredient" />
-          <button (click)="ingredientSearchClick()">Search</button><br /><br />
+    Search for a cocktail by ingredient:
+    <input type="text" [(ngModel)]="userSearchIngredient" />
+    <button (click)="ingredientSearchClick()">Search</button><br /><br />
 
-          <button (click)="getRandomDrinkClick()">Get a random drink</button>
-      </div>
+    <button (click)="getRandomDrinkClick()">Get a random drink</button>
 
+    <ng-container *ngIf="cocktails && !cocktailResponse">
 
-      <ng-container *ngIf="cocktails">
+      <ng-container *ngFor="let drink of cocktails.drinks" class="text-center border border-light p-5">
 
-          <div *ngFor="let cocktail of cocktails.drinks" class="text-center border border-light p-5">
-
-            <p class="h4 mb-4">{{ cocktail.strDrink }}</p>
-            <img src="{{ cocktail.strDrinkThumb }}"/><br />
-    {{ cocktail.strDrink }}
-    {{ cocktail.idDrink }}<br />
-    <button (click)="addToEventClick(cocktail.idDrink)" >Add to event</button>
-
-          </div>
+        <p class="h4 mb-4"><br />{{ drink.strDrink }}</p>
+        <img src="{{ drink.strDrinkThumb }}" /><br />
+        {{ drink.strDrink }}
+        {{ drink.idDrink }}<br />
+        <button (click)="getDetails(drink.idDrink)">Get drink details</button>
+        <button (click)="addToEventClick(drink.idDrink)">Add to event</button>
 
       </ng-container>
-</header>
+
+    </ng-container>
+
+    <ng-container *ngIf="cocktailResponse" class="text-center border border-light p-5">
+
+      <p class="h4 mb-4"><br />{{ cocktailResponse.drinks[0].strDrink }}</p>
+      <img src="{{ cocktailResponse.drinks[0].strDrinkThumb }}" /><br />
+
+      Ingredients
+      <table class="table">
+        <tbody>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure1">
+            <td>{{ cocktailResponse.drinks[0].strMeasure1 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient1 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure2">
+            <td>{{ cocktailResponse.drinks[0].strMeasure2 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient2 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure3">
+            <td>{{ cocktailResponse.drinks[0].strMeasure3 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient3 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure4">
+            <td>{{ cocktailResponse.drinks[0].strMeasure4 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient4 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure5">
+            <td>{{ cocktailResponse.drinks[0].strMeasure5 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient5 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure6">
+            <td>{{ cocktailResponse.drinks[0].strMeasure6 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient6 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure7">
+            <td>{{ cocktailResponse.drinks[0].strMeasure7 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient7 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure8">
+            <td>{{ cocktailResponse.drinks[0].strMeasure8 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient8 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure9">
+            <td>{{ cocktailResponse.drinks[0].strMeasure9 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient9 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure10">
+            <td>{{ cocktailResponse.drinks[0].strMeasure10 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient10 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure11">
+            <td>{{ cocktailResponse.drinks[0].strMeasure11 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient11 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure12">
+            <td>{{ cocktailResponse.drinks[0].strMeasure12 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient12 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure13">
+            <td>{{ cocktailResponse.drinks[0].strMeasure13 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient13 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure14">
+            <td>{{ cocktailResponse.drinks[0].strMeasure14 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient14 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure15">
+            <td>{{ cocktailResponse.drinks[0].strMeasure15 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient15 }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        Instructions<br />
+        {{ cocktailResponse.drinks[0].strInstructions }}
+      </div>
+
+    </ng-container>
+
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</body>

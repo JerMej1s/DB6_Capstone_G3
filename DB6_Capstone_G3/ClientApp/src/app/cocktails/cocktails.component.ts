@@ -25,10 +25,9 @@ export class CocktailsComponent implements OnInit {
   userSearchIngredient?: string;
   cocktail?: Cocktail;
   cocktails?: Cocktail[];
-  cocktailresult?: CocktailResponse;
+  cocktailResponse?: CocktailResponse;
   idDrink?: number;
   strDrink?: string;
-
 
   constructor(private auth: AuthService, private userevent: GetUserEveService, private cocktailapi: CocktailService, private route: Router) { }
 
@@ -50,18 +49,7 @@ export class CocktailsComponent implements OnInit {
     );
   }
 
-  getRandomDrinkClick() {
-    console.log('Inside getRandomDrinkClick()');
-    this.cocktailapi.getDrink(
-      result => {
-        console.log(result);
-        this.cocktails = result;
-      }
-    );
-  }
-
   nameSearchClick() {
-    console.log('Inside nameSearchClick()');
     this.userSearchName = this.userSearchName;
     this.cocktailapi.searchDrinksByName(this.userSearchName,
       result => {
@@ -72,7 +60,6 @@ export class CocktailsComponent implements OnInit {
   }
 
   ingredientSearchClick() {
-    console.log('Inside ingredientSearchClick()')
     this.userSearchIngredient = this.userSearchIngredient;
     console.log(this.userSearchIngredient);
     this.cocktailapi.searchDrinksByIngredient(this.userSearchIngredient,
@@ -83,28 +70,36 @@ export class CocktailsComponent implements OnInit {
     );
   }
 
-  addToEventClick(idDrink) {
-    console.log(`Inside addToEventClick(). idDrink: ${idDrink}`);
-    this.idDrink = idDrink;
+  getRandomDrinkClick() {
+    this.cocktailapi.getDrink(
+      result => {
+        console.log(result);
+        this.cocktails = result;
+      }
+    );
+  }
 
+  getDetails(idDrink) {
+    this.idDrink = idDrink;
+    this.cocktailapi.getDrinkById(this.idDrink,
+      result => {
+        this.cocktailResponse = result;
+        console.log('hello' + this.cocktailResponse);
+      }
+    );
+  }
+
+  addToEventClick(idDrink) {
+    this.idDrink = idDrink;
     this.cocktailapi.getDrinkById(this.idDrink,
       result => {
         this.cocktail = result;
-        this.cocktail[0].idEvent = this.idEvent;
-        console.log(this.idEvent);
-        console.log(this.cocktail.idEvent);
-        console.log("This is newcocktail")
-        console.log(this.cocktail);
-        console.log("THIS IS This.cocktail passing in")
-        console.log(this.cocktail)
-        this.cocktailapi.saveDrinkToEvent(this.cocktail, this.cocktail.idEvent,
+        this.cocktailapi.saveDrinkToEvent(this.cocktail,
           result => {
-            console.log("This is result")
-            console.log(result);
             this.cocktail = result;
           }
         );
       }
-    );
+    );    
   }
 }
