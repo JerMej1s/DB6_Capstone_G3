@@ -23,10 +23,9 @@ create table event (
 );
 
 create table cocktail (
-    idDrink int not null default 0,
+    idDrink int default null,
     strDrink varchar(100),
-    idEvent int,
-    primary key(idDrink)
+    idEvent int
 );
 
 create table meal (
@@ -43,3 +42,5 @@ insert into user (firstName, lastName, phoneNumber, email, password) values ('Je
 insert into event (idUser, eventName, date, city, state) values (1, 'DevBuild Graduation Party', '2021-11-19', 'Peoria', 'AZ');
 insert into event (idUser, eventName, date, city, state) values (2, 'A Holiday Celebration', '2021-11-19', 'Southfield', 'MI');
 insert into event (idUser, eventName, date, city, state) values (3, 'Friendsgiving', '2021-12-18', 'Pleasant Ridge', 'MI');
+
+select * from cocktail;
