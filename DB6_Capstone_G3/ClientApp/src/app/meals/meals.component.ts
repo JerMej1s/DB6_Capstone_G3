@@ -78,21 +78,21 @@ export class MealsComponent implements OnInit {
     );
   }
 
-  goToDetails(idMeal) {
-    console.log('Inside goToDetails()');
-    this.idMeal = idMeal;
-    this.mealapi.setIdMeal(this.idMeal);
-    this.route.navigate(['/meal']);
-  }
+  //goToDetails(idMeal) {
+  //  console.log('Inside goToDetails()');
+  //  this.idMeal = idMeal;
+  //  this.mealapi.setIdMeal(this.idMeal);
+  //  this.route.navigate(['/meal']);
+  //}
 
-  addToEventClick(idMeal) {
-    console.log('Inside addEventClick()');
-    this.meal = idMeal;
-    this.mealapi.saveMealToEvent(this.meal,
-      result => {
-        console.log(result);
-        this.meal = result;
-      }
-    );
-  }
+  //addToEventClick(idMeal) {
+  //  console.log('Inside addEventClick()');
+  //  this.meal = idMeal;
+  //  this.mealapi.saveMealToEvent(this.meal,
+  //    result => {
+  //      console.log(result);
+  //      this.meal = result;
+  //    }
+  //  );
+  //}
 }
