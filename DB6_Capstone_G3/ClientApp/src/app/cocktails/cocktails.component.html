@@ -18,8 +18,7 @@
 
         <p class="h4 mb-4"><br />{{ drink.strDrink }}</p>
         <img src="{{ drink.strDrinkThumb }}" /><br />
-        {{ drink.strDrink }}
-        {{ drink.idDrink }}<br />
+        {{ drink.strDrink }}<br />
         <button (click)="getDetails(drink.idDrink)">Get drink details</button>
         <button (click)="addToEventClick(drink.idDrink)">Add to event</button>
 
@@ -99,10 +98,10 @@
         </tbody>
       </table>
 
-      <div>
-        Instructions<br />
+      <header>
+        Instructions:<br />
         {{ cocktailResponse.drinks[0].strInstructions }}
-      </div>
+      </header>
 
     </ng-container>
 
