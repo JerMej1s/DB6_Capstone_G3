@@ -31,24 +31,73 @@
 
       <p class="h4 mb-4"><br />{{ cocktailResponse.drinks[0].strDrink }}</p>
       <img src="{{ cocktailResponse.drinks[0].strDrinkThumb }}" /><br />
-      <div>
-        Ingredients<br />
-        {{ cocktailResponse.drinks[0].strMeasure1 }}  {{ cocktailResponse.drinks[0].strIngredient1 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure2 }}  {{ cocktailResponse.drinks[0].strIngredient2 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure3 }}  {{ cocktailResponse.drinks[0].strIngredient3 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure4 }}  {{ cocktailResponse.drinks[0].strIngredient4 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure5 }}  {{ cocktailResponse.drinks[0].strIngredient5 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure6 }}  {{ cocktailResponse.drinks[0].strIngredient6 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure7 }}  {{ cocktailResponse.drinks[0].strIngredient7 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure8 }}  {{ cocktailResponse.drinks[0].strIngredient8 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure9 }}  {{ cocktailResponse.drinks[0].strIngredient9 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure10 }}  {{ cocktailResponse.drinks[0].strIngredient10 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure11 }}  {{ cocktailResponse.drinks[0].strIngredient11 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure12 }}  {{ cocktailResponse.drinks[0].strIngredient12 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure13 }}  {{ cocktailResponse.drinks[0].strIngredient13 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure14 }}  {{ cocktailResponse.drinks[0].strIngredient14 }}<br />
-        {{ cocktailResponse.drinks[0].strMeasure15 }}  {{ cocktailResponse.drinks[0].strIngredient15 }}<br />
-      </div>
+
+      Ingredients
+      <table class="table">
+        <tbody>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure1">
+            <td>{{ cocktailResponse.drinks[0].strMeasure1 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient1 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure2">
+            <td>{{ cocktailResponse.drinks[0].strMeasure2 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient2 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure3">
+            <td>{{ cocktailResponse.drinks[0].strMeasure3 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient3 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure4">
+            <td>{{ cocktailResponse.drinks[0].strMeasure4 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient4 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure5">
+            <td>{{ cocktailResponse.drinks[0].strMeasure5 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient5 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure6">
+            <td>{{ cocktailResponse.drinks[0].strMeasure6 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient6 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure7">
+            <td>{{ cocktailResponse.drinks[0].strMeasure7 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient7 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure8">
+            <td>{{ cocktailResponse.drinks[0].strMeasure8 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient8 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure9">
+            <td>{{ cocktailResponse.drinks[0].strMeasure9 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient9 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure10">
+            <td>{{ cocktailResponse.drinks[0].strMeasure10 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient10 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure11">
+            <td>{{ cocktailResponse.drinks[0].strMeasure11 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient11 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure12">
+            <td>{{ cocktailResponse.drinks[0].strMeasure12 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient12 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure13">
+            <td>{{ cocktailResponse.drinks[0].strMeasure13 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient13 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure14">
+            <td>{{ cocktailResponse.drinks[0].strMeasure14 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient14 }}</td>
+          </tr>
+          <tr *ngIf="cocktailResponse.drinks[0].strMeasure15">
+            <td>{{ cocktailResponse.drinks[0].strMeasure15 }}</td>
+            <td>{{ cocktailResponse.drinks[0].strIngredient15 }}</td>
+          </tr>
+        </tbody>
+      </table>
+
       <div>
         Instructions<br />
         {{ cocktailResponse.drinks[0].strInstructions }}
