@@ -84,7 +84,6 @@ export class CocktailsComponent implements OnInit {
     this.cocktailapi.getDrinkById(this.idDrink,
       result => {
         this.cocktailResponse = result;
-        console.log('hello' + this.cocktailResponse);
       }
     );
   }

@@ -1,29 +1,128 @@
-<h1>Find meals for your event</h1>
+<body id="backgroundphoto">
 
-<div>
-  Search for a meal by name:
-  <input type="text" [(ngModel)]="userSearchName" />
-  <button (click)="nameSearchClick()">Search</button><br />
+  <div class="text-center border border-light p-5">
+    <p class="h4 mb-4">Find cocktails for your event</p>
+    Search for a meal by name:
+    <input type="text" [(ngModel)]="userSearchName" />
+    <button (click)="nameSearchClick()">Search</button><br /><br />
 
-  Search for a meal by ingredient:
-  <input type="text" [(ngModel)]="userSearchIngredient" />
-  <button (click)="ingredientSearchClick()">Search</button><br />
+    Search for a meal by ingredient:
+    <input type="text" [(ngModel)]="userSearchIngredient" />
+    <button (click)="ingredientSearchClick()">Search</button><br /><br />
 
-  Get a random meal:
-  <button (click)="getRandomMealClick()">Get a random meal</button>
-</div>
+    <button (click)="getRandomMealClick()">Get a random meal</button>
 
-<ng-container *ngIf="meals">
+    <ng-container *ngIf="meals && !mealResponse">
 
-  <ng-container *ngFor="let meal of meals.meals">
+      <ng-container *ngFor="let meal of meals.meals" class="text-center border border-light p-5">
 
+        <p class="h4 mb-4"><br />{{ meal.strMeal }}</p>
+        <img src="{{ meal.strMealThumb }}" /><br />
+        {{ meal.strMeal }}
+        {{ meal.idMeal }}<br />
+        <button (click)="getDetails(meal.idMeal)">Get drink details</button>
+        <button (click)="addToEventClick(meal.idMeal)">Add to event</button>
 
-    <img src="{{ meal.strMealThumb }}" />
-    {{ meal.strMeal }}
-    {{ meal.idMeal }}<br />
-    <button (click)="goToDetails(meal.idMeal)">Get drink details</button>
-    <button (click)="addToEventClick(meal.idMeal)">Add to event</button>
+      </ng-container>
 
-  </ng-container>
+    </ng-container>
 
-</ng-container>
+    <ng-container *ngIf="mealResponse" class="text-center border border-light p-5">
+
+      <p class="h4 mb-4"><br />{{ mealResponse.meals[0].strMeal }}</p>
+      <img src="{{ mealResponse.meals[0].strMealThumb }}" /><br />
+
+      Ingredients
+      <table class="table">
+        <tbody>
+          <tr *ngIf="mealResponse.meals[0].strMeasure1">
+            <td>{{ mealResponse.meals[0].strMeasure1 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient1 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure2">
+            <td>{{ mealResponse.meals[0].strMeasure2 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient2 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure3">
+            <td>{{ mealResponse.meals[0].strMeasure3 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient3 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure4">
+            <td>{{ mealResponse.meals[0].strMeasure4 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient4 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure5">
+            <td>{{ mealResponse.meals[0].strMeasure5 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient5 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure6">
+            <td>{{ mealResponse.meals[0].strMeasure6 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient6 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure7">
+            <td>{{ mealResponse.meals[0].strMeasure7 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient7 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure8">
+            <td>{{ mealResponse.meals[0].strMeasure8 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient8 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure9">
+            <td>{{ mealResponse.meals[0].strMeasure9 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient9 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure10">
+            <td>{{ mealResponse.meals[0].strMeasure10 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient10 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure11">
+            <td>{{ mealResponse.meals[0].strMeasure11 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient11 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure12">
+            <td>{{ mealResponse.meals[0].strMeasure12 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient12 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure13">
+            <td>{{ mealResponse.meals[0].strMeasure13 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient13 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure14">
+            <td>{{ mealResponse.meals[0].strMeasure14 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient14 }}</td>
+          </tr>
+          <tr *ngIf="mealResponse.meals[0].strMeasure15">
+            <td>{{ mealResponse.meals[0].strMeasure15 }}</td>
+            <td>{{ mealResponse.meals[0].strIngredient15 }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div>
+        Instructions<br />
+        {{ mealResponse.meals[0].strInstructions }}
+      </div>
+
+    </ng-container>
+
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</body>

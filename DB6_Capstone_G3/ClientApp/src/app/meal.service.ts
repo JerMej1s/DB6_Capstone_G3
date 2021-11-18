@@ -35,17 +35,15 @@ export class MealService {
     console.log(userSearchIngredient);
     this.http.get<Meal>(`api/meals/ingredient/${userSearchIngredient}`).subscribe(
       result => {
-        console.log(userSearchIngredient);
         cb(result);
       }
     );
   }
 
-  saveMealToEvent(newMeal, cb) {
+  saveMealToEvent(newMeal, idEvent, cb) {
     console.log(newMeal);
-    this.http.post<any>('api/meals/save', newMeal).subscribe(
+    this.http.post<any>(`api/meals/save/${idEvent}`, newMeal).subscribe(
       result => {
-        console.log(newMeal);
         cb(result);
       }
     );
@@ -55,7 +53,6 @@ export class MealService {
     console.log(idMeal);
     this.http.get<Meal>(`api/meals/details/${idMeal}`, idMeal).subscribe(
       result => {
-        console.log(idMeal);
         cb(result);
       }
     );

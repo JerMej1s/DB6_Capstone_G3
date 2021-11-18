@@ -141,27 +141,28 @@ namespace DB6_Capstone_G3.Models
             return newEvent;
         }
         
-        public static Cocktail SaveCocktailToEvent( CocktailResponse cocktail, int idEvent)
+        public static Cocktail SaveCocktailToEvent( CocktailResponse cocktailResponse, int idEvent)
         {
-            var newlist = cocktail.drinks.ToList();
-            Cocktail testcocktail = new Cocktail();
-            testcocktail.strDrink = newlist[0].strDrink;
-            testcocktail.idDrinkz = newlist[0].idDrink;
-            testcocktail.idEvent = idEvent;
+            var cocktailList = cocktailResponse.drinks.ToList();
+            Cocktail cocktail = new Cocktail();
+            cocktail.strDrink = cocktailList[0].strDrink;
+            cocktail.idDrinkz = cocktailList[0].idDrink;
+            cocktail.idEvent = idEvent;
 
-            db.Insert(testcocktail);
-            return testcocktail;
+            db.Insert(cocktail);
+            return cocktail;
         }
 
-        public static Meal SaveMealToEvent(MealResponse meal)
+        public static Meal SaveMealToEvent(MealResponse mealResponse, int idEvent)
         {
-            var newlist = meal.meals.ToList();
-            Meal testmeal = new Meal();
-            testmeal.strMeal = newlist[0].strMeal;
-            testmeal.idMealz = newlist[0].idMeal;
-            testmeal.idEvent = 1;
-            db.Insert(testmeal);
-            return testmeal;
+            var mealList = mealResponse.meals.ToList();
+            Meal meal = new Meal();
+            meal.strMeal = mealList[0].strMeal;
+            meal.idMealz = mealList[0].idMeal;
+            meal.idEvent = idEvent;
+
+            db.Insert(meal);
+            return meal;
         }
 
         public static IEnumerable<Event> GetEventsForUser(int idUser)
