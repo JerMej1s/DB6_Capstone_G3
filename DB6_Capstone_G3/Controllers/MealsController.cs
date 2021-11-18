@@ -42,10 +42,10 @@ namespace DB6_Capstone_G3.Controllers
             return await DAL.GetMealDetails(idMeal);
         }
 
-        [HttpPost("save")]
-        public Meal SaveMeal([FromBody] MealResponse meal)
+        [HttpPost("save/{idEvent}")]
+        public Meal SaveMeal([FromBody] MealResponse meal, [FromRoute] int idEvent)
         {
-            return DAL.SaveMealToEvent(meal);
+            return DAL.SaveMealToEvent(meal, idEvent);
         }
     }
 }

@@ -33,6 +33,7 @@ create table meal (
 	idMeal int not null default 0,
     idMealz int,
     idEvent int,
+    strMeal varchar(100),
     primary key(idMeal)
 );
 
