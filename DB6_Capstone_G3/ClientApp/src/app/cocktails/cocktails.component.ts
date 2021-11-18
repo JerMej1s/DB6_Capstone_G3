@@ -25,14 +25,9 @@ export class CocktailsComponent implements OnInit {
   userSearchIngredient?: string;
   cocktail?: Cocktail;
   cocktails?: Cocktail[];
+  cocktailresult?: CocktailResponse;
   idDrink?: number;
   strDrink?: string;
-  @Input() newcocktail: Cocktail =
-    {
-      idDrink: null,
-      strDrink: null,
-      idEvent: this.idEvent,
-    }
 
 
   constructor(private auth: AuthService, private userevent: GetUserEveService, private cocktailapi: CocktailService, private route: Router) { }
@@ -94,15 +89,15 @@ export class CocktailsComponent implements OnInit {
 
     this.cocktailapi.getDrinkById(this.idDrink,
       result => {
-        this.newcocktail = result;
+        this.cocktail = result;
+        this.cocktail[0].idEvent = this.idEvent;
+        console.log(this.idEvent);
+        console.log(this.cocktail.idEvent);
         console.log("This is newcocktail")
-        console.log(this.newcocktail);
-        //this.cocktail.idDrink = this.idDrink;
-        //this.cocktail.idEvent = this.idEvent;
-        this.cocktail = this.newcocktail;
+        console.log(this.cocktail);
         console.log("THIS IS This.cocktail passing in")
         console.log(this.cocktail)
-        this.cocktailapi.saveDrinkToEvent(this.cocktail,
+        this.cocktailapi.saveDrinkToEvent(this.cocktail, this.cocktail.idEvent,
           result => {
             console.log("This is result")
             console.log(result);
@@ -111,7 +106,5 @@ export class CocktailsComponent implements OnInit {
         );
       }
     );
-
-    
   }
 }

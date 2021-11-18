@@ -36,14 +36,14 @@ namespace DB6_Capstone_G3.Controllers
             return await DAL.GetRandomMeal();
         }
 
-        [HttpGet("details")]
-        public async Task<Meal> GetMealDetailsById(int idMeal)
+        [HttpGet("details/{idMeal}")]
+        public async Task<MealResponse> GetMealDetailsById([FromRoute] int idMeal)
         {
             return await DAL.GetMealDetails(idMeal);
         }
 
         [HttpPost("save")]
-        public Meal SaveMeal(Meal meal)
+        public Meal SaveMeal([FromBody] MealResponse meal)
         {
             return DAL.SaveMealToEvent(meal);
         }
