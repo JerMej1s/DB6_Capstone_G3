@@ -23,6 +23,11 @@ export interface Meal {
   strIngredient13: String,
   strIngredient14: String,
   strIngredient15: String,
+  strIngredient16: String,
+  strIngredient17: String,
+  strIngredient18: String,
+  strIngredient19: String,
+  strIngredient20: String,
   strMeasure1: String,
   strMeasure2: String,
   strMeasure3: String,
@@ -38,5 +43,10 @@ export interface Meal {
   strMeasure13: String,
   strMeasure14: String,
   strMeasure15: String,
+  strMeasure16: String,
+  strMeasure17: String,
+  strMeasure18: String,
+  strMeasure19: String,
+  strMeasure20: String
 }
 
