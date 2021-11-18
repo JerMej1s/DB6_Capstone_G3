@@ -30,13 +30,11 @@
 
       <p class="h4 mb-4"><br />{{ cocktailResponse.drinks[0].strDrink }}</p>
       <img src="{{ cocktailResponse.drinks[0].strDrinkThumb }}" /><br />
-      <!--outside for loop so wont work pass data down-->
       <button (click)="addToEventClick(drink.idDrink)">Add to event</button><br />
 
       Ingredients
       <table class="table">
         <tbody>
-          <!--do a for loop you degens instead of .strmeasure1 do strmeasure[i] or i-->
           <tr *ngIf="cocktailResponse.drinks[0].strMeasure1">
             <td>{{ cocktailResponse.drinks[0].strMeasure1 }}</td>
             <td>{{ cocktailResponse.drinks[0].strIngredient1 }}</td>

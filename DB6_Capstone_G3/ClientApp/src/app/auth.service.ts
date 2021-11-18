@@ -17,7 +17,7 @@ export class AuthService {
   }
 
 
-  public registerUser(theuser, cb) {
+  public registerUser(theuser: User, cb) {
     console.log("inside event");
     console.log(theuser);
     return this.http.post<User>('user/save', theuser).subscribe(

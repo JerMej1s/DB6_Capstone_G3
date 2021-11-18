@@ -25,7 +25,7 @@ export class RegisterComponent {
       password: null,
     }
 
-  editidUser: number = null;
+  editidUser: number = 0;
   editFN: string = '';
   editLN: string = '';
   editPN: string = '';
