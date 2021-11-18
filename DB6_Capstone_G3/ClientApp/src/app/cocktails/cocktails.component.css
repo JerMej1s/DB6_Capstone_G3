@@ -1,7 +1,9 @@
 #backgroundphoto {
-  background: url("../../Pictures/cocktails3.jpg") no-repeat;
-  background-size: 100% 100%;
-  height: 800px;
+  background-image: url("../../Pictures/cocktails3.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
 }
 
 div {
@@ -12,6 +14,8 @@ div {
   width: 50%;
   margin-left: 25%;
 }
+
+
 
 input[type=text], input[type=submit], input[type=datetime], button, textarea {
   width: 65%;
