@@ -141,13 +141,13 @@ namespace DB6_Capstone_G3.Models
             return newEvent;
         }
         
-        public static Cocktail SaveCocktailToEvent( CocktailResponse cocktail)
+        public static Cocktail SaveCocktailToEvent( CocktailResponse cocktail, int idEvent)
         {
             var newlist = cocktail.drinks.ToList();
             Cocktail testcocktail = new Cocktail();
             testcocktail.strDrink = newlist[0].strDrink;
             testcocktail.idDrinkz = newlist[0].idDrink;
-            testcocktail.idEvent = 1;
+            testcocktail.idEvent = idEvent;
 
             db.Insert(testcocktail);
             return testcocktail;
