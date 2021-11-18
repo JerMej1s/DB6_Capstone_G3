@@ -38,7 +38,7 @@ export class CocktailService {
 
   saveDrinkToEvent(newCocktail, cb) {
     console.log(newCocktail);
-    this.http.post<Cocktail>('api/cocktails/save', newCocktail).subscribe(
+    this.http.post<any>('api/cocktails/save', newCocktail).subscribe(
       result => {
         console.log(newCocktail);
         cb(result);
