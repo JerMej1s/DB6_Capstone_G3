@@ -3,17 +3,17 @@ create database partyplanner;
 use partyplanner;
 
 create table user (
-	idUser int not null unique auto_increment,
+	idUser int not null auto_increment,
     firstName varchar(30),
     lastName varchar(30),
     phoneNumber varchar(50),
     email varchar(50) unique,
     password varchar(10),
-    primary key(idUser)  
+    primary key(idUser)   
 );
 
 create table event (
-	idEvent int not null unique auto_increment,
+	idEvent int not null auto_increment,
     idUser int,
     eventName varchar(100),
     date DateTime,
@@ -23,15 +23,16 @@ create table event (
 );
 
 create table cocktail (
-    idDrink int default null,
+    idDrink int not null default 0,
+    idDrinkz int,
     strDrink varchar(100),
     idEvent int
 );
 
 create table meal (
 	idMeal int not null default 0,
+    idMealz int,
     idEvent int,
-    strMeal varchar(100),
     primary key(idMeal)
 );
 
@@ -43,4 +44,3 @@ insert into event (idUser, eventName, date, city, state) values (1, 'DevBuild Gr
 insert into event (idUser, eventName, date, city, state) values (2, 'A Holiday Celebration', '2021-11-19', 'Southfield', 'MI');
 insert into event (idUser, eventName, date, city, state) values (3, 'Friendsgiving', '2021-12-18', 'Pleasant Ridge', 'MI');
 
-select * from cocktail;

@@ -19,7 +19,7 @@
           <div *ngFor="let cocktail of cocktails.drinks" class="text-center border border-light p-5">
 
             <p class="h4 mb-4">{{ cocktail.strDrink }}</p>
-            <img src="{{ cocktail.strDrinkThumb }}" /><br />
+            <img src="{{ cocktail.strDrinkThumb }}"/><br />
     {{ cocktail.strDrink }}
     {{ cocktail.idDrink }}<br />
     <button (click)="addToEventClick(cocktail.idDrink)" >Add to event</button>
