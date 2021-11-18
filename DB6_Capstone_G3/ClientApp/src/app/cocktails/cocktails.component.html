@@ -12,19 +12,47 @@
 
     <button (click)="getRandomDrinkClick()">Get a random drink</button>
 
+    <ng-container *ngIf="cocktails && !cocktailResponse">
 
+      <ng-container *ngFor="let drink of cocktails.drinks" class="text-center border border-light p-5">
 
-    <ng-container *ngIf="cocktails">
-
-      <ng-container *ngFor="let cocktail of cocktails.drinks" class="text-center border border-light p-5">
-
-        <p class="h4 mb-4"><br />{{ cocktail.strDrink }}</p>
-        <img src="{{ cocktail.strDrinkThumb }}" /><br />
-        {{ cocktail.strDrink }}
-        {{ cocktail.idDrink }}<br />
-        <button (click)="addToEventClick(cocktail.idDrink)">Add to event</button>
+        <p class="h4 mb-4"><br />{{ drink.strDrink }}</p>
+        <img src="{{ drink.strDrinkThumb }}" /><br />
+        {{ drink.strDrink }}
+        {{ drink.idDrink }}<br />
+        <button (click)="getDetails(drink.idDrink)">Get drink details</button>
+        <button (click)="addToEventClick(drink.idDrink)">Add to event</button>
 
       </ng-container>
+
+    </ng-container>
+
+    <ng-container *ngIf="cocktailResponse" class="text-center border border-light p-5">
+
+      <p class="h4 mb-4"><br />{{ cocktailResponse.drinks[0].strDrink }}</p>
+      <img src="{{ cocktailResponse.drinks[0].strDrinkThumb }}" /><br />
+      <div>
+        Ingredients<br />
+        {{ cocktailResponse.drinks[0].strMeasure1 }}  {{ cocktailResponse.drinks[0].strIngredient1 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure2 }}  {{ cocktailResponse.drinks[0].strIngredient2 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure3 }}  {{ cocktailResponse.drinks[0].strIngredient3 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure4 }}  {{ cocktailResponse.drinks[0].strIngredient4 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure5 }}  {{ cocktailResponse.drinks[0].strIngredient5 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure6 }}  {{ cocktailResponse.drinks[0].strIngredient6 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure7 }}  {{ cocktailResponse.drinks[0].strIngredient7 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure8 }}  {{ cocktailResponse.drinks[0].strIngredient8 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure9 }}  {{ cocktailResponse.drinks[0].strIngredient9 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure10 }}  {{ cocktailResponse.drinks[0].strIngredient10 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure11 }}  {{ cocktailResponse.drinks[0].strIngredient11 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure12 }}  {{ cocktailResponse.drinks[0].strIngredient12 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure13 }}  {{ cocktailResponse.drinks[0].strIngredient13 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure14 }}  {{ cocktailResponse.drinks[0].strIngredient14 }}<br />
+        {{ cocktailResponse.drinks[0].strMeasure15 }}  {{ cocktailResponse.drinks[0].strIngredient15 }}<br />
+      </div>
+      <div>
+        Instructions<br />
+        {{ cocktailResponse.drinks[0].strInstructions }}
+      </div>
 
     </ng-container>
 
