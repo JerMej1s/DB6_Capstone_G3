@@ -101,10 +101,10 @@ namespace DB6_Capstone_G3.Models
             return response;
         }
 
-        public async static Task<Meal> GetMealDetails(int idMeal)
+        public async static Task<MealResponse> GetMealDetails(int idMeal)
         {
             var connection = await GetHttpMealClient().GetAsync($"api/json/v1/1/lookup.php?i={idMeal}");
-            Meal response = await connection.Content.ReadAsAsync<Meal>();
+            MealResponse response = await connection.Content.ReadAsAsync<MealResponse>();
             return response;
         }
 
@@ -153,10 +153,15 @@ namespace DB6_Capstone_G3.Models
             return testcocktail;
         }
 
-        public static Meal SaveMealToEvent(Meal meal)
+        public static Meal SaveMealToEvent(MealResponse meal)
         {
-            db.Insert(meal);
-            return meal;
+            var newlist = meal.meals.ToList();
+            Meal testmeal = new Meal();
+            testmeal.strMeal = newlist[0].strMeal;
+            testmeal.idMealz = newlist[0].idMeal;
+            testmeal.idEvent = 1;
+            db.Insert(testmeal);
+            return testmeal;
         }
 
         public static IEnumerable<Event> GetEventsForUser(int idUser)

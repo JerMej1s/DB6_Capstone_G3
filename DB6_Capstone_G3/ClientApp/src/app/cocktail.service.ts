@@ -35,6 +35,7 @@ export class CocktailService {
     );
   }
 
+
   saveDrinkToEvent(newCocktail,idEvent, cb) {
     console.log(newCocktail);
     this.http.post<any>(`api/cocktails/save/${idEvent}`, newCocktail).subscribe(

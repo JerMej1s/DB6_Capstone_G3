@@ -12,7 +12,8 @@ namespace DB6_Capstone_G3.Models
 
         public class Meals
         {
-            public string idMeal { get; set; }
+            public int idMeal { get; set; }
+            public int idEvent { get; set; }
             public string strMeal { get; set; }
             public string strInstructions { get; set; }
             public string strMealThumb { get; set; }
