@@ -36,14 +36,14 @@ namespace DB6_Capstone_G3.Controllers
             return await DAL.GetRandomCocktail();
         }
 
-        [HttpGet("details")]
-        public async Task<Cocktail> GetCocktailDetailsById(int idDrink)
+        [HttpGet("details/{idDrink}")]
+        public async Task<CocktailResponse> GetCocktailDetailsById([FromRoute] int idDrink)
         {
             return await DAL.GetCocktailDetails(idDrink);
         }
 
         [HttpPost("save")]
-        public Cocktail SaveCocktail(Cocktail cocktail)
+        public Cocktail SaveCocktail([FromBody] Cocktail cocktail)
         {
             return DAL.SaveCocktailToEvent(cocktail);
         }

@@ -53,10 +53,10 @@ namespace DB6_Capstone_G3.Models
             return response;
         }
 
-        public async static Task<Cocktail> GetCocktailDetails(int idDrink)
+        public async static Task<CocktailResponse> GetCocktailDetails(int idDrink)
         {
             var connection = await GetHttpCocktailClient().GetAsync($"api/json/v1/1/lookup.php?i={idDrink}");
-            Cocktail response = await connection.Content.ReadAsAsync<Cocktail>();
+            CocktailResponse response = await connection.Content.ReadAsAsync<CocktailResponse>();
             return response;
         }
 

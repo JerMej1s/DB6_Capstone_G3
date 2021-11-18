@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cocktail } from './Cocktail';
+import { CocktailResponse } from './cocktail-response';
 
 @Injectable()
 export class CocktailService {
@@ -47,9 +48,9 @@ export class CocktailService {
 
   getDrinkById(idDrink, cb) {
     console.log(idDrink);
-    this.http.get<Cocktail>(`api/cocktails/details`, idDrink).subscribe(
+    this.http.get<Cocktail>(`api/cocktails/details/${idDrink}`, idDrink).subscribe(
       result => {
-        console.log(idDrink);
+        console.log(result);
         cb(result);
       }
     );

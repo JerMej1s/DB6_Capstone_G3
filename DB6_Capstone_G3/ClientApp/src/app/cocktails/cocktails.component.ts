@@ -22,8 +22,8 @@ export class CocktailsComponent implements OnInit {
 
   userSearchName?: string;
   userSearchIngredient?: string;
-  cocktails?: Cocktail[];
   cocktail?: Cocktail;
+  cocktails?: Cocktail[];
   idDrink?: number;
 
   constructor(private auth: AuthService, private userevent: GetUserEveService, private cocktailapi: CocktailService, private route: Router) { }
@@ -80,14 +80,24 @@ export class CocktailsComponent implements OnInit {
   }
 
   addToEventClick(idDrink) {
-    console.log('Inside addEventClick()');
-    this.cocktail = idDrink;
-    console.log(this.cocktail);
-    this.cocktailapi.saveDrinkToEvent(this.cocktail,
+    console.log(`Inside addEventClick(). idDrink: ${idDrink}`);
+    this.idDrink = idDrink;
+    this.cocktailapi.getDrinkById(this.idDrink,
       result => {
-        console.log(result);
         this.cocktail = result;
+        console.log(`getDrinkById result: ${result}`)
+        console.log(this.cocktail);
+        this.cocktail.idEvent = this.idEvent;
+
+        this.cocktailapi.saveDrinkToEvent(this.cocktail,
+          result2 => {
+            console.log(result2);
+            this.cocktail = result2;
+          }
+        );
       }
     );
+
+    
   }
 }
