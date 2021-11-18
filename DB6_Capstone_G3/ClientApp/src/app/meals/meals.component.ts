@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
+import { GetUserEveService } from '../get-user-eve.service';
 import { Meal } from '../Meal';
 import { MealService } from '../meal.service';
 
@@ -14,28 +15,34 @@ import { MealService } from '../meal.service';
 export class MealsComponent implements OnInit {
 
   public currentIdUser?: Observable<number>;
-  public currentIdMeal?: Observable<number>;
+  public currentIdEvent?: Observable<number>;
 
   idUser: number = -1;
-  idMeal?: number;
+  idEvent: number = -1;
 
   userSearchName?: string;
   userSearchIngredient?: string;
   meals?: Meal[];
   meal?: Meal;
 
-  constructor(private mealapi: MealService, private auth: AuthService, private route: Router) { }
+  constructor(private auth: AuthService, private userevent: GetUserEveService, private mealapi: MealService,  private route: Router) { }
 
     ngOnInit(): void {
       this.currentIdUser = this.auth.getCurrentUserId();
 
       this.currentIdUser.subscribe((idUser: number) => {
-        console.log(`Logging from cocktails component: ${idUser}`);
-        this.idUser = this.idUser;
+        console.log(`Logging from meals component: ${idUser}`);
+        this.idUser = idUser;
         }
       );
 
-      
+      this.currentIdEvent = this.userevent.getCurrentEventId();
+
+      this.currentIdEvent.subscribe((idEvent: number) => {
+        console.log(`Logging from meals component: idEvent: ${idEvent}`);
+        this.idEvent = idEvent;
+      }
+      );
     }
 
   getRandomMealClick() {
