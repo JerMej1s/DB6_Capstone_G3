@@ -30,17 +30,16 @@ export class CocktailService {
     console.log(userSearchIngredient);
     this.http.get<Cocktail>(`api/cocktails/ingredient/${userSearchIngredient}`).subscribe(
       result => {
-        console.log(userSearchIngredient);
         cb(result);
       }
     );
   }
 
-  saveDrinkToEvent(newCocktail, idEvent, cb) {
+
+  saveDrinkToEvent(newCocktail,idEvent, cb) {
     console.log(newCocktail);
-    this.http.post<any>('api/cocktails/save', newCocktail, idEvent).subscribe(
+    this.http.post<any>(`api/cocktails/save/${idEvent}`, newCocktail).subscribe(
       result => {
-        console.log(newCocktail);
         cb(result);
       }
     );
@@ -50,7 +49,6 @@ export class CocktailService {
     console.log(idDrink);
     this.http.get<Cocktail>(`api/cocktails/details/${idDrink}`, idDrink).subscribe(
       result => {
-        console.log(result);
         cb(result);
       }
     );

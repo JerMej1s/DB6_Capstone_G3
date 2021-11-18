@@ -42,8 +42,8 @@ namespace DB6_Capstone_G3.Controllers
             return await DAL.GetCocktailDetails(idDrink);
         }
 
-        [HttpPost("save")]
-        public Cocktail SaveCocktail([FromBody] CocktailResponse cocktail, int idEvent)
+        [HttpPost("save/{idEvent}")]
+        public Cocktail SaveCocktail([FromBody] CocktailResponse cocktail, [FromRoute] int idEvent)
         {
             return DAL.SaveCocktailToEvent(cocktail, idEvent);
         }

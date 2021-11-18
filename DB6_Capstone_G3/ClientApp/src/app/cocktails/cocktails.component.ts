@@ -94,7 +94,8 @@ export class CocktailsComponent implements OnInit {
     this.cocktailapi.getDrinkById(this.idDrink,
       result => {
         this.cocktail = result;
-        this.cocktailapi.saveDrinkToEvent(this.cocktail,
+        this.cocktail.idEvent = this.idEvent;
+        this.cocktailapi.saveDrinkToEvent(this.cocktail, this.cocktail.idEvent,
           result => {
             this.cocktail = result;
           }
