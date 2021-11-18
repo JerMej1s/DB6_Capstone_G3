@@ -43,7 +43,7 @@ export class MealService {
 
   saveMealToEvent(newMeal, cb) {
     console.log(newMeal);
-    this.http.post<Meal>('api/meals/save', newMeal).subscribe(
+    this.http.post<any>('api/meals/save', newMeal).subscribe(
       result => {
         console.log(newMeal);
         cb(result);
@@ -53,7 +53,7 @@ export class MealService {
 
   getMealById(idMeal, cb) {
     console.log(idMeal);
-    this.http.get<Meal>('api/meals/details', idMeal).subscribe(
+    this.http.get<Meal>(`api/meals/details/${idMeal}`, idMeal).subscribe(
       result => {
         console.log(idMeal);
         cb(result);

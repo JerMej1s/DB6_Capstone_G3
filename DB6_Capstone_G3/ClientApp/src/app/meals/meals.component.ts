@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
@@ -19,12 +19,20 @@ export class MealsComponent implements OnInit {
 
   idUser: number = -1;
   idEvent: number = -1;
+  idMeal?: number;
 
   userSearchName?: string;
   userSearchIngredient?: string;
   meals?: Meal[];
   meal?: Meal;
 
+  @Input() newMeal: Meal =
+    {
+      idMeal: null,
+      strMeal: null,
+      idEvent: this.idEvent,
+    }
+  d
   constructor(private auth: AuthService, private userevent: GetUserEveService, private mealapi: MealService,  private route: Router) { }
 
     ngOnInit(): void {
@@ -78,21 +86,27 @@ export class MealsComponent implements OnInit {
     );
   }
 
-  //goToDetails(idMeal) {
-  //  console.log('Inside goToDetails()');
-  //  this.idMeal = idMeal;
-  //  this.mealapi.setIdMeal(this.idMeal);
-  //  this.route.navigate(['/meal']);
-  //}
+  addToEventClick(idMeal) {
+    console.log(`Inside addToEventClick(). idMeal: ${idMeal}`);
+    this.idMeal = idMeal;
 
-  //addToEventClick(idMeal) {
-  //  console.log('Inside addEventClick()');
-  //  this.meal = idMeal;
-  //  this.mealapi.saveMealToEvent(this.meal,
-  //    result => {
-  //      console.log(result);
-  //      this.meal = result;
-  //    }
-  //  );
-  //}
+    this.mealapi.getMealById(this.idMeal,
+      result => {
+        this.newMeal = result;
+        console.log("This is new Meal")
+        console.log(this.newMeal);
+        this.meal = this.newMeal;
+        this.newMeal.idEvent = this.idEvent;
+        console.log("THIS IS This.MEAL passing in")
+        console.log(this.meal)
+        this.mealapi.saveMealToEvent(this.meal,
+          result => {
+            console.log("This is result")
+            console.log(result);
+            this.meal = result;
+          }
+        );
+      }
+    );
+  }
 }
