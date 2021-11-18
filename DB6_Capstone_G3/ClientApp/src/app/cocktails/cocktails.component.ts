@@ -50,6 +50,7 @@ export class CocktailsComponent implements OnInit {
   }
 
   nameSearchClick() {
+    this.cocktailResponse = null;
     this.userSearchName = this.userSearchName;
     this.cocktailapi.searchDrinksByName(this.userSearchName,
       result => {
@@ -60,6 +61,7 @@ export class CocktailsComponent implements OnInit {
   }
 
   ingredientSearchClick() {
+    this.cocktailResponse = null;
     this.userSearchIngredient = this.userSearchIngredient;
     console.log(this.userSearchIngredient);
     this.cocktailapi.searchDrinksByIngredient(this.userSearchIngredient,
@@ -71,6 +73,7 @@ export class CocktailsComponent implements OnInit {
   }
 
   getRandomDrinkClick() {
+    this.cocktailResponse = null;
     this.cocktailapi.getDrink(
       result => {
         console.log(result);

@@ -1,7 +1,7 @@
 <body id="backgroundphoto">
 
   <div class="text-center border border-light p-5">
-    <p class="h4 mb-4">Find cocktails for your event</p>
+    <p class="h4 mb-4">Find meals for your event</p>
     Search for a meal by name:
     <input type="text" [(ngModel)]="userSearchName" />
     <button (click)="nameSearchClick()">Search</button><br /><br />
@@ -20,7 +20,7 @@
         <img src="{{ meal.strMealThumb }}" /><br />
         {{ meal.strMeal }}
         {{ meal.idMeal }}<br />
-        <button (click)="getDetails(meal.idMeal)">Get drink details</button>
+        <button (click)="getDetails(meal.idMeal)">Get meal details</button>
         <button (click)="addToEventClick(meal.idMeal)">Add to event</button>
 
       </ng-container>
@@ -31,6 +31,7 @@
 
       <p class="h4 mb-4"><br />{{ mealResponse.meals[0].strMeal }}</p>
       <img src="{{ mealResponse.meals[0].strMealThumb }}" /><br />
+      <button (click)="addToEventClick(meal.idMeal)">Add to event</button><br />
 
       Ingredients
       <table class="table">

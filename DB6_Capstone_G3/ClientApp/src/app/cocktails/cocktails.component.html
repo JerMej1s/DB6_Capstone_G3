@@ -31,6 +31,7 @@
 
       <p class="h4 mb-4"><br />{{ cocktailResponse.drinks[0].strDrink }}</p>
       <img src="{{ cocktailResponse.drinks[0].strDrinkThumb }}" /><br />
+      <button (click)="addToEventClick(drink.idDrink)">Add to event</button><br />
 
       Ingredients
       <table class="table">
