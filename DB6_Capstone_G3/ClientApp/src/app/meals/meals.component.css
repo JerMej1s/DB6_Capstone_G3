@@ -1,2 +1,41 @@
-﻿body {
+#backgroundphoto {
+  background-image: url("../../Pictures/Meals09.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+div {
+  color: beige;
+  font-size: 15px;
+  padding: 10px;
+  background: rgb(1 1 1 / 0.8);
+  width: 50%;
+  margin-left: 25%;
+}
+
+tbody {
+  color: beige;
+}
+
+
+input[type=text], input[type=submit], button, textarea {
+  width: 65%;
+  padding: 1px;
+  border: 1px solid red;
+  border-radius: 4px;
+  resize: both;
+  text-align: center
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 400px;
+}
+
+button:hover {
+  background-color: lightgreen;
 }

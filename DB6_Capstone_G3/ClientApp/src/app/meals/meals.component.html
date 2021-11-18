@@ -17,9 +17,8 @@
       <ng-container *ngFor="let meal of meals.meals" class="text-center border border-light p-5">
 
         <p class="h4 mb-4"><br />{{ meal.strMeal }}</p>
-        <img src="{{ meal.strMealThumb }}" /><br />
-        {{ meal.strMeal }}
-        {{ meal.idMeal }}<br />
+        <img src="{{ meal.strMealThumb }}" title="{{ meal.strMeal }}"/><br />
+
         <button (click)="getDetails(meal.idMeal)">Get meal details</button>
         <button (click)="addToEventClick(meal.idMeal)">Add to event</button>
 
@@ -99,10 +98,10 @@
         </tbody>
       </table>
 
-      <div>
-        Instructions<br />
+      <header>
+        Instructions:<br />
         {{ mealResponse.meals[0].strInstructions }}
-      </div>
+      </header>
 
     </ng-container>
 
