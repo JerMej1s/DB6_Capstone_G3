@@ -19,8 +19,6 @@ export class LoginComponent implements OnInit {
       password: null,
     }
 
- 
-
   editUserEmail: string = '';
   editUserPW: string = '';
 
