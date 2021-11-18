@@ -61,6 +61,7 @@ export class EventsComponent implements OnInit {
       }
     ) 
   }
+
   passUserEventToCocktail(idEvent) {
     console.log(idEvent);
     console.log("event to cocktail clicked")
@@ -68,8 +69,10 @@ export class EventsComponent implements OnInit {
     this.userevents.setIdEvent(this.idEvent)
     this.route.navigate(['/cocktails'])
   }
+
   passUserEventToMeal(idEvent) {
-    console.log("event to meal clicked")
+    console.log("event to meal clicked");
+    this.idEvent = idEvent;
     this.userevents.setIdEvent(this.idEvent);
     this.route.navigate(['/meals'])
   }

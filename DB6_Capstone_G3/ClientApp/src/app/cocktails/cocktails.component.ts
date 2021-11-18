@@ -40,9 +40,10 @@ export class CocktailsComponent implements OnInit {
     this.currentIdEvent = this.userevent.getCurrentEventId();
 
     this.currentIdEvent.subscribe((idEvent: number) => {
-      console.log(`Logging gtom cocktails component: idEvent: ${idEvent}`);
+      console.log(`Logging from cocktails component: idEvent: ${idEvent}`);
       this.idEvent = idEvent;
-    })
+      }
+    );
   }
 
   getRandomDrinkClick() {
