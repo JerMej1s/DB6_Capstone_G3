@@ -18,7 +18,6 @@ export class GetUserEveService {
   getUserEvents(idUser, cb) {
     console.log("inside iduser event");
     console.log(idUser);
-    idUser = 1;
     this.http.get<any>(`user/events/${idUser}`, idUser).subscribe(
       result => {
         cb(result);

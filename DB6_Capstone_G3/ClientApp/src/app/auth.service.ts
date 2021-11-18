@@ -32,6 +32,7 @@ export class AuthService {
     console.log(loginuser);
     return this.http.post<any>('user/home', loginuser).subscribe(
       (result: any) => {
+        console.log(result);
         this.setIdUser(result);
         this.newresult = result;
         cb(result);

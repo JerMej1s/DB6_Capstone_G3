@@ -27,7 +27,7 @@ export class EventsComponent implements OnInit {
     this.currentIdUser = this.auth.getCurrentUserId();
 
     this.currentIdUser.subscribe((idUser: number) => {
-      console.log(`Logging from Nav Bar Component in events: ${idUser}`);
+      console.log(`Logging from Event Component in events: ${idUser}`);
       this.idUser = idUser;
       if (idUser > -1) {
         this.getUserEvents()
