@@ -10,8 +10,10 @@ namespace DB6_Capstone_G3.Models
     [Table("cocktail")]
     public class Cocktail
     {
+        
         [Key]
         public int idDrink { get; set; }
+        public int idDrinkz { get; set; }
         public int idEvent { get; set; }
         public string strDrink { get; set; }
     }

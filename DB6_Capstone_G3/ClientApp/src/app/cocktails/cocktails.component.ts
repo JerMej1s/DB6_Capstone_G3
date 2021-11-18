@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from '../auth.service';
 import { Cocktail } from '../Cocktail';
+import { CocktailResponse } from '../cocktail-response';
 import { CocktailService } from '../cocktail.service';
 import { GetUserEveService } from '../get-user-eve.service';
 
@@ -26,6 +27,13 @@ export class CocktailsComponent implements OnInit {
   cocktails?: Cocktail[];
   idDrink?: number;
   strDrink?: string;
+  @Input() newcocktail: Cocktail =
+    {
+      idDrink: null,
+      strDrink: null,
+      idEvent: this.idEvent,
+    }
+
 
   constructor(private auth: AuthService, private userevent: GetUserEveService, private cocktailapi: CocktailService, private route: Router) { }
 
@@ -83,17 +91,20 @@ export class CocktailsComponent implements OnInit {
   addToEventClick(idDrink) {
     console.log(`Inside addToEventClick(). idDrink: ${idDrink}`);
     this.idDrink = idDrink;
+
     this.cocktailapi.getDrinkById(this.idDrink,
       result => {
-        this.cocktail = result;
-        this.cocktail.strDrink = this.strDrink;
-        console.log(`getDrinkById result: ${result}`)
-        console.log(this.cocktail);
-        this.cocktail.idDrink = this.idDrink;
-        this.cocktail.idEvent = this.idEvent;
-        
+        this.newcocktail = result;
+        console.log("This is newcocktail")
+        console.log(this.newcocktail);
+        //this.cocktail.idDrink = this.idDrink;
+        //this.cocktail.idEvent = this.idEvent;
+        this.cocktail = this.newcocktail;
+        console.log("THIS IS This.cocktail passing in")
+        console.log(this.cocktail)
         this.cocktailapi.saveDrinkToEvent(this.cocktail,
           result => {
+            console.log("This is result")
             console.log(result);
             this.cocktail = result;
           }
