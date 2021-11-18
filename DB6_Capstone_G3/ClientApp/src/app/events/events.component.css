@@ -1,8 +1,10 @@
 
 #backgroundphoto {
   background: url("../../Pictures/BarEvent3.jpg") no-repeat;
-  background-size: 100% 100%;
-  height: 800px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: contain;
 }
 
 div {
@@ -10,6 +12,16 @@ div {
   font-size: 15px;
   padding: 10px;
   background: rgb(1 1 1 / 0.8);
+  width: 50%;
+  margin-left: 25%;
+}
+
+
+#eventList {
+  color: beige;
+  font-size: 15px;
+  padding: 10px;
+  /*background: rgb(1 1 1 / 0.8);*/
   width: 50%;
   margin-left: 25%;
 }
@@ -23,6 +35,6 @@ input[type=text], input[type=submit], input[type=datetime], button, textarea {
   text-align:center
 }
 
-  input[type=submit]:hover {
+  button:hover {
     background-color: lightgreen;
   }

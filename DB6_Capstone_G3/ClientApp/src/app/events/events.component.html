@@ -1,21 +1,28 @@
 
 
 
-<header id="backgroundphoto">
+<body id="backgroundphoto">
 
-  <div *ngIf="this.idUser > 0; then loggedIn; else loggedOut" class="text-center border border-light p-5">
+  <div *ngIf="this.idUser > 0; then loggedIn; else loggedOut">
   </div>
-    <ng-template #loggedIn>
-      <div *ngFor="let event of userEvents;">
-        {{event.eventName}} {{event.idEvent}}
+
+  <ng-template #loggedIn>
+
+    <div class="text-center border border-light p-5">
+      <p class="h2 mb-4">Scheduled Events</p>
+      <header *ngFor="let event of userEvents;" class="text-center">
+
+        <p class="h4 mb-4"><br />{{event.eventName}}</p>
 
         <button (click)="passUserEventToCocktail(event.idEvent)">Search cocktails</button>
         <button (click)="passUserEventToMeal(event.idEvent)">Search meals</button>
-      </div>
-    </ng-template>
+      </header>
+    </div>
+  </ng-template>
 
-  <div class="text-center border border-light p-5">
-    <ng-template #loggedOut>
+
+  <ng-template #loggedOut>
+    <div class="text-center border border-light p-5">
       <p class="h4 mb-4">Please fill in form to book event</p>
 
       <label hidden for="idUser"></label>
@@ -34,9 +41,25 @@
       <input type="text" [(ngModel)]="editState" /><br /><br />
 
       <input (click)="saveButtonClicked()" type="submit" />
-    </ng-template>
-  </div>
+    </div>
+  </ng-template>
 
 
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
 
-</header>
+</body>
