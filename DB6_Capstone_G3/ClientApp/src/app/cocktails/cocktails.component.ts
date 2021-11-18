@@ -15,24 +15,34 @@ import { GetUserEveService } from '../get-user-eve.service';
 export class CocktailsComponent implements OnInit {
 
   public currentIdUser?: Observable<number>;
+  public currentIdEvent?: Observable<number>;
 
   idUser: number = -1;
+  idEvent: number = -1;
+
   userSearchName?: string;
   userSearchIngredient?: string;
   cocktails?: Cocktail[];
   cocktail?: Cocktail;
   idDrink?: number;
 
-  constructor(private cocktailapi: CocktailService, private auth: AuthService, private route: Router, private geteventid: GetUserEveService) { }
+  constructor(private auth: AuthService, private userevent: GetUserEveService, private cocktailapi: CocktailService, private route: Router) { }
 
   ngOnInit(): void {
     this.currentIdUser = this.auth.getCurrentUserId();
 
     this.currentIdUser.subscribe((idUser: number) => {
       console.log(`Logging from cocktails component: ${idUser}`);
-      this.idUser = this.idUser;
+      this.idUser = idUser;
       }
     );
+
+    this.currentIdEvent = this.userevent.getCurrentEventId();
+
+    this.currentIdEvent.subscribe((idEvent: number) => {
+      console.log(`Logging gtom cocktails component: idEvent: ${idEvent}`);
+      this.idEvent = idEvent;
+    })
   }
 
   getRandomDrinkClick() {

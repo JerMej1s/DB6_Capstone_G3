@@ -9,8 +9,8 @@
       <div *ngFor="let event of userEvents;">
         {{event.eventName}} {{event.idEvent}}
 
-        <button (click)="passUserEventToCocktail(event.idEvent)">Add Cocktail</button>
-        <button (click)="passUserEventToCocktail(event.idEvent)">Add Meal</button>
+        <button (click)="passUserEventToCocktail(event.idEvent)">Search cocktails</button>
+        <button (click)="passUserEventToCocktail(event.idEvent)">Search meals</button>
       </div>
     </ng-template>
 
