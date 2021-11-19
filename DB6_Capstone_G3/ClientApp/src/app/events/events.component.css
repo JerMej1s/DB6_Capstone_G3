@@ -23,13 +23,13 @@ img {
   width: 275px;
 }
 
-input[type=text], input[type=submit], button, textarea {
+input[type=text], input[type=submit], input[type=datetime], button, textarea {
   width: 65%;
   padding: 1px;
   border: 1px solid red;
   border-radius: 4px;
   resize: both;
-  text-align:center
+  text-align: center
 }
 
   button:hover {
