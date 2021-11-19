@@ -172,17 +172,17 @@ namespace DB6_Capstone_G3.Models
             return result;
         }
 
-        public static IEnumerable<Cocktail> GetCocktailsForEvent(string idEvent)
+        public static IEnumerable<Cocktail> GetCocktailsForEvent(int idEvent)
         {
             var parameters = new { idEvent = idEvent };
             IEnumerable<Cocktail> result = db.Query<Cocktail>("select * from cocktail where idEvent = @idEvent", parameters);
             return result;
         }
 
-        public static IEnumerable<Meals> GetMealsForEvent(string idEvent)
+        public static IEnumerable<Meal> GetMealsForEvent(int idEvent)
         {
             var parameters = new { idEvent = idEvent };
-            IEnumerable<Meals> result = db.Query<Meals>("select * from meal where idEvent = @idEvent", parameters);
+            IEnumerable<Meal> result = db.Query<Meal>("select * from meal where idEvent = @idEvent", parameters);
             return result;
         }
     }

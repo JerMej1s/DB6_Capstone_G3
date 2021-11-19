@@ -22,7 +22,23 @@ export class GetUserEveService {
       result => {
         cb(result);
       }
-    )
+    );
+  }
+
+  getCocktailsForEvent(idEvent, cb) {
+    this.http.get<any>(`/event/cocktails/${idEvent}`, idEvent).subscribe(
+      result => {
+        cb(result);
+      }
+    );
+  }
+
+  getMealsForEvent(idEvent, cb) {
+    this.http.get<any>(`/event/meals/${idEvent}`, idEvent).subscribe(
+      result => {
+        cb(result);
+      }
+    );
   }
 
   setIdEvent(newId: number) {

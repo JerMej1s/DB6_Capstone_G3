@@ -93,6 +93,7 @@ export class MealsComponent implements OnInit {
 
   addToEventClick(idMeal) {
     this.idMeal = idMeal;
+    console.log(`Inside addToEventClick(): idMeal: ${idMeal}`);
     this.mealapi.getMealById(this.idMeal,
       result => {
         this.meal = result;

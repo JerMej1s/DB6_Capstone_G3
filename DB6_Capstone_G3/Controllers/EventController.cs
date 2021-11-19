@@ -23,5 +23,17 @@ namespace DB6_Capstone_G3.Controllers
         {
             return DAL.GetEventsForUser(idUser);
         }
+
+        [HttpGet("cocktails/{idEvent}")]
+        public IEnumerable<Cocktail> GetCocktails([FromRoute] int idEvent)
+        {
+            return DAL.GetCocktailsForEvent(idEvent);
+        }
+
+        [HttpGet("meals/{idEvent}")]
+        public IEnumerable<Meal> GetMeals([FromRoute] int idEvent)
+        {
+            return DAL.GetMealsForEvent(idEvent);
+        }
     }
 }
