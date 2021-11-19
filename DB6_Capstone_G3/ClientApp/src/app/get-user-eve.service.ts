@@ -7,7 +7,7 @@ import { AuthService } from './auth.service';
 export class GetUserEveService {
   private currentIdEvent: BehaviorSubject<number> = new BehaviorSubject(-1);
 
-  constructor(private http: HttpClient, private auth: AuthService) {
+  constructor(private http: HttpClient, private http2: HttpClient, private auth: AuthService) {
   }
 
   public getCurrentEventId(): Observable<number> {
@@ -34,7 +34,7 @@ export class GetUserEveService {
   }
 
   getMealsForEvent(idEvent, cb) {
-    this.http.get<any>(`/event/meals/${idEvent}`, idEvent).subscribe(
+    this.http2.get<any>(`/event/meals/${idEvent}`, idEvent).subscribe(
       result => {
         cb(result);
       }

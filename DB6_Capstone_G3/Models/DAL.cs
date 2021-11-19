@@ -109,7 +109,7 @@ namespace DB6_Capstone_G3.Models
         }
 
         // DAL for database
-        public static MySqlConnection db;
+        public static MySqlConnection db, db2;
         public static User SaveUser(User user)
         {
             db.Insert(user);
@@ -182,7 +182,7 @@ namespace DB6_Capstone_G3.Models
         public static IEnumerable<Meal> GetMealsForEvent(int idEvent)
         {
             var parameters = new { idEvent = idEvent };
-            IEnumerable<Meal> result = db.Query<Meal>("select * from meal where idEvent = @idEvent", parameters);
+            IEnumerable<Meal> result = db2.Query<Meal>("select * from meal where idEvent = @idEvent", parameters);
             return result;
         }
     }
