@@ -28,7 +28,6 @@ export class EventsComponent implements OnInit {
   usereve?: Event;
   eventCocktails?: Cocktail[];
   eventMeals?: Meal[];
-  showDetails: boolean = false;
   eventID: number = null;
   eventnaming: string = '';
   editCity: string = '';
@@ -77,6 +76,7 @@ export class EventsComponent implements OnInit {
     this.userevents.getCocktailsForEvent(idEvent,
       result => {
         this.eventCocktails = result;
+        console.log(`test ${this.eventCocktails[0]}`);
         this.delay(1000);
       }
     );

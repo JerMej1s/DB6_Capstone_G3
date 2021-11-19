@@ -148,6 +148,7 @@ namespace DB6_Capstone_G3.Models
             cocktail.strDrink = cocktailList[0].strDrink;
             cocktail.idDrinkz = cocktailList[0].idDrink;
             cocktail.idEvent = idEvent;
+            cocktail.strDrinkThumb = cocktailList[0].strDrinkThumb;
 
             db.Insert(cocktail);
             return cocktail;
@@ -160,6 +161,7 @@ namespace DB6_Capstone_G3.Models
             meal.strMeal = mealList[0].strMeal;
             meal.idMealz = mealList[0].idMeal;
             meal.idEvent = idEvent;
+            meal.strMealThumb = mealList[0].strMealThumb;
 
             db.Insert(meal);
             return meal;

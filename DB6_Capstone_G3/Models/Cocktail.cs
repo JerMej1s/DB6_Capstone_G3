@@ -16,5 +16,6 @@ namespace DB6_Capstone_G3.Models
         public int idDrinkz { get; set; }
         public int idEvent { get; set; }
         public string strDrink { get; set; }
+        public string strDrinkThumb { get; set; }
     }
 }

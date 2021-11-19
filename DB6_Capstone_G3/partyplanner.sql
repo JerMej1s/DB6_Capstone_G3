@@ -25,15 +25,17 @@ create table event (
 create table cocktail (
     idDrink int not null default 0,
     idDrinkz int,
+    idEvent int,
     strDrink varchar(100),
-    idEvent int
+    strDrinkThumb varchar(1000)    
 );
 
 create table meal (
 	idMeal int not null default 0,
     idMealz int,
     idEvent int,
-    strMeal varchar(100)
+    strMeal varchar(100),
+    strMealThumb varchar(100)
 );
 
 insert into user (firstName, lastName, phoneNumber, email, password) values ('Brandon', 'Miller', '980-296-2966', 'brandonmiller1@rocketmortgage.com', 'abc123');
@@ -43,4 +45,3 @@ insert into user (firstName, lastName, phoneNumber, email, password) values ('Je
 insert into event (idUser, eventName, date, city, state) values (1, 'DevBuild Graduation Party', '2021-11-19', 'Peoria', 'AZ');
 insert into event (idUser, eventName, date, city, state) values (2, 'A Holiday Celebration', '2021-11-19', 'Southfield', 'MI');
 insert into event (idUser, eventName, date, city, state) values (3, 'Friendsgiving', '2021-12-18', 'Pleasant Ridge', 'MI');
-
