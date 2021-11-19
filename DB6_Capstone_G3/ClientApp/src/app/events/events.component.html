@@ -13,43 +13,46 @@
       <p class="h2 mb-4">Scheduled Events</p>
 
       <button (click)="showNewEventForm = true">Create new event</button>
+      
 
-      <div *ngIf="this.showNewEventForm">
-        <div class="text-center border border-light p-5">
-          <p class="h4 mb-4">Please fill in form to book event</p>
+      <section *ngIf="this.showNewEventForm">
+        <br />
+        <p class="h4 mb-4">Please fill in form to book event</p>
 
-          <label hidden for="idUser"></label>
-          <input hidden type="number" id="idUser" name="idUser" /><br />
+        <label hidden for="idUser"></label>
+        <input hidden type="number" id="idUser" name="idUser" />
 
-          <label for="eventName">Event Name</label><br />
-          <input type="text" [(ngModel)]="eventnaming" /><br />
+        <label for="eventName">Event Name</label><br />
+        <input type="text" [(ngModel)]="eventnaming" /><br />
 
-          <label for="date">Date</label><br />
-          <input type="datetime" [(ngModel)]="editDate" placeholder="YYYY-MM-DD" /><br />
+        <label for="date">Date</label><br />
+        <input type="datetime" [(ngModel)]="editDate" placeholder="YYYY-MM-DD" /><br />
 
-          <label for="city">City</label><br />
-          <input type="text" [(ngModel)]="editCity" /><br />
+        <label for="city">City</label><br />
+        <input type="text" [(ngModel)]="editCity" /><br />
 
-          <label for="state">State</label><br />
-          <input type="text" [(ngModel)]="editState" /><br /><br />
+        <label for="state">State</label><br />
+        <input type="text" [(ngModel)]="editState" /><br /><br />
 
-          <input (click)="saveButtonClicked()" type="submit" />
-        </div>
-      </div>
+        <input (click)="saveButtonClicked()" type="submit" />
 
-      <header *ngFor="let event of userEvents;" class="text-center">
+      </section>
+
+      <section *ngFor="let event of userEvents;" class="text-center">
 
         <p class="h4 mb-4"><br />{{event.eventName}}</p>
 
         <button (click)="getCocktailsMealsForEvent(event.idEvent)">See menu</button>
         <button (click)="passUserEventToCocktail(event.idEvent)">Search cocktails</button>
         <button (click)="passUserEventToMeal(event.idEvent)">Search meals</button>
-      </header>
+      </section>
     </div>
   </ng-template>
 
   <ng-template #loggedOut>
-    Please log in to create a new event.
+    <div class="text-center border border-light p-5">
+      <p class="h4 mb-4">Please log in to create a new event.</p>
+</div>
   </ng-template>
   <br />
   <br />
@@ -66,6 +69,19 @@
   <br />
   <br />
   <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 
-
+  
 </body>
