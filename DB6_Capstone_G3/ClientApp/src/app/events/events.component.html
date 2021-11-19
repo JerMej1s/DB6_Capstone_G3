@@ -42,7 +42,7 @@
 
         <p class="h4 mb-4"><br />{{event.eventName}}</p>
 
-        <button (click)="getCocktailsMealsForEvent(event.idEvent); showDetails = false;">See menu</button>
+        <button (click)="getCocktailsMealsForEvent(event.idEvent)">See menu</button>
         <button (click)="passUserEventToCocktail(event.idEvent)">Search cocktails</button>
         <button (click)="passUserEventToMeal(event.idEvent)">Search meals</button>
       </section>
