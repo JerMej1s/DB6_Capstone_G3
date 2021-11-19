@@ -28,7 +28,6 @@ export class EventsComponent implements OnInit {
   usereve?: Event;
   eventCocktails?: Cocktail[];
   eventMeals?: Meal[];
-  showNewEventForm: boolean = false;
   showDetails: boolean = false;
   eventID: number = null;
   eventnaming: string = '';
@@ -51,7 +50,7 @@ export class EventsComponent implements OnInit {
   @Input() theevent: Event =
     {
       idEvent: 0,
-      idUser: 1,
+      idUser: 0,
       eventName: null,
       date: null,
       city: null,
@@ -64,6 +63,7 @@ export class EventsComponent implements OnInit {
   delay(ms: number) {
     return new Promise( resolve => setTimeout(resolve,ms))
   }
+
   getUserEvents() {
     this.userevents.getUserEvents(this.idUser,
       result => {
@@ -74,22 +74,17 @@ export class EventsComponent implements OnInit {
   }
 
   getCocktailsMealsForEvent(idEvent) {
-    this.showDetails = true;
     this.userevents.getCocktailsForEvent(idEvent,
       result => {
         this.eventCocktails = result;
-        console.log(`Please be the right results: ${result}`);
         this.delay(1000);
       }
     );
-/*    setTimeout(() => {*/
       this.userevents.getMealsForEvent(idEvent,
         result => {
           this.eventMeals = result;
-          console.log(`is this right meal?? ${result}`);
         }
       );
-/*    }, 5000);*/
     
   }
 
@@ -106,6 +101,7 @@ export class EventsComponent implements OnInit {
   }
 
   saveButtonClicked() {
+    this.theevent.idUser = this.idUser;
     this.theevent.eventName = this.eventnaming;
     this.theevent.city = this.editCity;
     this.theevent.state = this.editState;
