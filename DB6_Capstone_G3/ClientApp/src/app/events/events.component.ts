@@ -70,19 +70,19 @@ export class EventsComponent implements OnInit {
     );
   }
 
-  //getCocktailsMealsForEvent(idEvent) {
-  //  this.showDetails = true;
-  //  this.userevents.getCocktailsForEvent(idEvent,
-  //    result => {
-  //      this.eventCocktails = result;
-  //    }
-  //  );
-  //  this.userevents.getMealsForEvent(idEvent,
-  //    result => {
-  //      this.eventMeals = result;
-  //    }
-  //  );
-  //}
+  getCocktailsMealsForEvent(idEvent) {
+    this.showDetails = true;
+    this.userevents.getCocktailsForEvent(idEvent,
+      result => {
+        this.eventCocktails = result;
+      }
+    );
+    //this.userevents.getMealsForEvent(idEvent,
+    //  result => {
+    //    this.eventMeals = result;
+    //  }
+    //);
+  }
 
   passUserEventToCocktail(idEvent) {
     this.idEvent = idEvent;
