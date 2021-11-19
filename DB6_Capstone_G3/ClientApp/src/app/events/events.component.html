@@ -13,7 +13,7 @@
       <p class="h2 mb-4">Scheduled Events</p>
 
       <button (click)="showNewEventForm = true">Create new event</button>
-      
+
 
       <section *ngIf="this.showNewEventForm">
         <br />
@@ -38,41 +38,45 @@
 
       </section>
 
-      <section *ngFor="let event of userEvents;" class="text-center">
+      <section *ngIf="!showMenu">
+        <section *ngFor="let event of userEvents;" class="text-center">
 
-        <p class="h4 mb-4"><br />{{event.eventName}}</p>
+          <p class="h4 mb-4"><br />{{ event.eventName }}</p>
 
-        <section *ngIf="showMenu">
-
-          <section *ngFor="let drink of eventCocktails" class="text-center">
-
-            <p class="h4 mb-4"><br />{{ drink.strDrink }}</p>
-
-            <img src="{{ drink.strDrinkThumb }}" title="{{ drink.strDrink }}" /><br />
-
-          </section>
-
-          <section *ngFor="let meal of eventMeals" class="text-center">
-
-            <p class="h4 mb-4"><br />{{ meal.strMeal }}</p>
-
-            <img src="{{ meal.strMealThumb }}" title="{{ meal.strMeal }}" /><br />
-
-          </section>
-
+          <button (click)="getCocktailsMealsForEvent(event.idEvent, event.eventName); showMenu = true;">See menu</button>
+          <button (click)="passUserEventToCocktail(event.idEvent)">Search cocktails</button>
+          <button (click)="passUserEventToMeal(event.idEvent)">Search meals</button>
         </section>
-
-        <button (click)="getCocktailsMealsForEvent(event.idEvent); showMenu = true;">See menu</button>
-        <button (click)="passUserEventToCocktail(event.idEvent)">Search cocktails</button>
-        <button (click)="passUserEventToMeal(event.idEvent)">Search meals</button>
       </section>
     </div>
   </ng-template>
 
+  <section *ngIf="showMenu">
+
+    <p class="h4 mb-4"><br />{{ this.eventName }} </p>
+
+    <section *ngFor="let drink of eventCocktails" class="text-center">
+
+      <p class="h4 mb-4"><br />{{ drink.strDrink }}</p>
+
+      <img src="{{ drink.strDrinkThumb }}" title="{{ drink.strDrink }}" /><br />
+
+    </section>
+
+    <section *ngFor="let meal of eventMeals" class="text-center">
+
+      <p class="h4 mb-4"><br />{{ meal.strMeal }}</p>
+
+      <img src="{{ meal.strMealThumb }}" title="{{ meal.strMeal }}" /><br />
+
+    </section>
+
+  </section>
+
   <ng-template #loggedOut>
     <div class="text-center border border-light p-5">
       <p class="h4 mb-4">Please log in to create a new event.</p>
-</div>
+    </div>
   </ng-template>
   <br />
   <br />
@@ -103,5 +107,5 @@
   <br />
   <br />
 
-  
+
 </body>
