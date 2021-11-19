@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { RegisterUserService } from '../registeruser.service';
 import { User } from '../user';
@@ -13,7 +14,7 @@ import { User } from '../user';
 
 export class RegisterComponent {
 
-  constructor(private registeruser: RegisterUserService, private auth: AuthService) {
+  constructor(private registeruser: RegisterUserService, private auth: AuthService, private route: Router) {
   }
   @Input() theuser: User =
     {
@@ -41,6 +42,7 @@ export class RegisterComponent {
     this.theuser.email = this.editEmail;
     this.theuser.password = this.editPass;
     this.auth.registerUser(this.theuser, () => { });
+    this.route.navigate(['/registeredconfirmation']);
   }
 
 }
