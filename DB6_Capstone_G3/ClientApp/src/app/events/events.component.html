@@ -44,7 +44,7 @@
 
         <section *ngIf="showMenu">
 
-          <section *ngFor="let drink of eventCocktails">
+          <section *ngFor="let drink of eventCocktails" class="text-center">
 
             <p class="h4 mb-4"><br />{{ drink.strDrink }}</p>
 
@@ -52,7 +52,7 @@
 
           </section>
 
-          <section *ngFor="let meal of eventMeals">
+          <section *ngFor="let meal of eventMeals" class="text-center">
 
             <p class="h4 mb-4"><br />{{ meal.strMeal }}</p>
 
