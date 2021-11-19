@@ -33,8 +33,7 @@ create table meal (
 	idMeal int not null default 0,
     idMealz int,
     idEvent int,
-    strMeal varchar(100),
-    primary key(idMeal)
+    strMeal varchar(100)
 );
 
 insert into user (firstName, lastName, phoneNumber, email, password) values ('Brandon', 'Miller', '980-296-2966', 'brandonmiller1@rocketmortgage.com', 'abc123');

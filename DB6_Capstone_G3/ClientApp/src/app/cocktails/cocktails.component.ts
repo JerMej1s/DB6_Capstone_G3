@@ -93,6 +93,7 @@ export class CocktailsComponent implements OnInit {
 
   addToEventClick(idDrink) {
     this.idDrink = idDrink;
+    console.log(`Inside addToEventClick(): idDrink: ${idDrink}`);
     this.cocktailapi.getDrinkById(this.idDrink,
       result => {
         this.cocktail = result;
