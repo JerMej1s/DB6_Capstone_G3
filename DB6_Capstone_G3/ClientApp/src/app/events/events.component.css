@@ -16,16 +16,6 @@ div {
   margin-left: 25%;
 }
 
-
-/*#eventList {
-  color: beige;
-  font-size: 15px;
-  padding: 10px;*/
-  /*background: rgb(1 1 1 / 0.8);*/
-  /*width: 50%;
-  margin-left: 25%;
-}*/
-
 img {
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -33,7 +23,7 @@ img {
   width: 275px;
 }
 
-input[type=text], input[type=submit], input[type=datetime], button, textarea {
+input[type=text], input[type=submit], button, textarea {
   width: 65%;
   padding: 1px;
   border: 1px solid red;
