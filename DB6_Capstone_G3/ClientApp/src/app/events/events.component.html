@@ -52,6 +52,14 @@
 
           </section>
 
+          <section *ngFor="let meal of eventMeals">
+
+            <p class="h4 mb-4"><br />{{ meal.strMeal }}</p>
+
+            <img src="{{ meal.strMealThumb }}" title="{{ meal.strMeal }}" /><br />
+
+          </section>
+
         </section>
 
         <button (click)="getCocktailsMealsForEvent(event.idEvent); showMenu = true;">See menu</button>
