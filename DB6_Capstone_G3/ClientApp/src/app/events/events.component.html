@@ -42,7 +42,19 @@
 
         <p class="h4 mb-4"><br />{{event.eventName}}</p>
 
-        <button (click)="getCocktailsMealsForEvent(event.idEvent)">See menu</button>
+        <section *ngIf="showMenu">
+
+          <section *ngFor="let drink of eventCocktails">
+
+            <p class="h4 mb-4"><br />{{ drink.strDrink }}</p>
+
+            <img src="{{ drink.strDrinkThumb }}" title="{{ drink.strDrink }}" /><br />
+
+          </section>
+
+        </section>
+
+        <button (click)="getCocktailsMealsForEvent(event.idEvent); showMenu = true;">See menu</button>
         <button (click)="passUserEventToCocktail(event.idEvent)">Search cocktails</button>
         <button (click)="passUserEventToMeal(event.idEvent)">Search meals</button>
       </section>
