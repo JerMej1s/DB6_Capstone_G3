@@ -21,6 +21,7 @@ export class CocktailsComponent implements OnInit {
   idUser: number = -1;
   idEvent: number = -1;
 
+  buttonclick: boolean = false;
   userSearchName?: string;
   userSearchIngredient?: string;
   cocktail?: Cocktail;
@@ -93,6 +94,7 @@ export class CocktailsComponent implements OnInit {
 
   addToEventClick(idDrink) {
     this.idDrink = idDrink;
+    this.buttonclick = true;
     console.log(`Inside addToEventClick(): idDrink: ${idDrink}`);
     this.cocktailapi.getDrinkById(this.idDrink,
       result => {

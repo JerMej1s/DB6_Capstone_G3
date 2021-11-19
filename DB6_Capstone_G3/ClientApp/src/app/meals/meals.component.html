@@ -21,6 +21,10 @@
 
         <button (click)="getDetails(meal.idMeal)">Get meal details</button>
         <button (click)="addToEventClick(meal.idMeal)">Add to event</button>
+        <ng-container *ngIf="buttonclick">
+          <br />
+          Meal Added!
+        </ng-container>
 
       </ng-container>
 

@@ -21,6 +21,7 @@ export class MealsComponent implements OnInit {
   idUser: number = -1;
   idEvent: number = -1;
 
+  buttonclick: boolean = false;
   userSearchName?: string;
   userSearchIngredient?: string;
   meals?: Meal[];
@@ -93,6 +94,7 @@ export class MealsComponent implements OnInit {
 
   addToEventClick(idMeal) {
     this.idMeal = idMeal;
+    this.buttonclick = true;
     console.log(`Inside addToEventClick(): idMeal: ${idMeal}`);
     this.mealapi.getMealById(this.idMeal,
       result => {

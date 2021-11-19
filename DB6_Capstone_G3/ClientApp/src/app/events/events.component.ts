@@ -78,7 +78,7 @@ export class EventsComponent implements OnInit {
       result => {
         this.eventCocktails = result;
         console.log(`test ${this.eventCocktails[0]}`);
-        this.delay(50);
+        this.delay(750);
       }
     );
       this.userevents.getMealsForEvent(idEvent,
