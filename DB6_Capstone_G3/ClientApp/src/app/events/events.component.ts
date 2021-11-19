@@ -61,6 +61,9 @@ export class EventsComponent implements OnInit {
   constructor(private eventsave: EventsaveService, private auth: AuthService, private route: Router, private userevents: GetUserEveService) {
   }
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve,ms))
+  }
   getUserEvents() {
     this.userevents.getUserEvents(this.idUser,
       result => {
@@ -76,13 +79,18 @@ export class EventsComponent implements OnInit {
       result => {
         this.eventCocktails = result;
         console.log(`Please be the right results: ${result}`);
+        this.delay(1000);
       }
     );
-    //this.userevents.getMealsForEvent(idEvent,
-    //  result => {
-    //    this.eventMeals = result;
-    //  }
-    //);
+/*    setTimeout(() => {*/
+      this.userevents.getMealsForEvent(idEvent,
+        result => {
+          this.eventMeals = result;
+          console.log(`is this right meal?? ${result}`);
+        }
+      );
+/*    }, 5000);*/
+    
   }
 
   passUserEventToCocktail(idEvent) {

@@ -185,7 +185,7 @@ namespace DB6_Capstone_G3.Models
         {
             var parameters = new { idEvent = idEvent };
             IEnumerable<Meal> meals;
-            IEnumerable<Meal> result = db2.Query<Meal>("select * from meal where idEvent = @idEvent", parameters);
+            IEnumerable<Meal> result = db.Query<Meal>("select * from meal where idEvent = @idEvent", parameters);
             meals = result;
             return meals;
         }
