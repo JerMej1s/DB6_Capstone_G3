@@ -75,6 +75,7 @@ export class EventsComponent implements OnInit {
     this.userevents.getCocktailsForEvent(idEvent,
       result => {
         this.eventCocktails = result;
+        console.log(`Please be the right results: ${result}`);
       }
     );
     //this.userevents.getMealsForEvent(idEvent,
