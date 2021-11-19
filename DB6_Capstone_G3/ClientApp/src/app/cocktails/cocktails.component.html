@@ -17,10 +17,14 @@
       <ng-container *ngFor="let drink of cocktails.drinks" class="text-center border border-light p-5">
 
         <p class="h4 mb-4"><br />{{ drink.strDrink }}</p>
-        <img src="{{ drink.strDrinkThumb }}" title="{{ drink.strDrink }}"/><br />
+        <img src="{{ drink.strDrinkThumb }}" title="{{ drink.strDrink }}" /><br />
         <button (click)="getDetails(drink.idDrink)">Get drink details</button>
         <button (click)="addToEventClick(drink.idDrink)">Add to event</button>
 
+      </ng-container>
+      <ng-container *ngIf="buttonclick">
+        <br />
+        Cocktail Added!
       </ng-container>
 
     </ng-container>
